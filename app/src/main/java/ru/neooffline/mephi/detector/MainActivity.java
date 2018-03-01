@@ -11,13 +11,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        View.OnClickListener settingsPage = new View.OnClickListener() {
+        View.OnClickListener settingsPage;
+        settingsPage = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent);
             }
         };
-
+        public void sumToom (View view){
+            Integer c = 1+2;
+        }
     }
 }
