@@ -39,13 +39,17 @@
             android:text="Старт"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button3"
+            android:id="@+id/buttonStart"
             android:minWidth="250dp"
-            android:layout_marginBottom="12dp"
-            android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"/>
+            android:layout_above="@+id/buttonSettings" android:layout_centerHorizontal="true"
+            android:layout_marginBottom="31dp"/>
     <Button
-            android:text="настройки"
+            android:text="@string/settingsButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true" android:id="@+id/button4"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonSettings"
+            android:onClick="settingsCall"
+            android:layout_marginBottom="12dp"
+            android:layout_alignParentBottom="true" android:layout_toStartOf="@+id/textView3"
+    />
 </RelativeLayout>

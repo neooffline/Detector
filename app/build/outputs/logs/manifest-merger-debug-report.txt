@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:2:1-22:12
 	package
 		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:3:11-49
 		INJECTED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:2:1-23
 		INJECTED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml
 		INJECTED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml
 application
-ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:5:5-21:19
+ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:5:5-20:19
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\26.0.0-alpha1\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\support-v4\26.0.0-alpha1\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\26.0.0-alpha1\AndroidManifest.xml:29:5-20
@@ -24,6 +24,7 @@ MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] E:\Source\And
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\26.0.0-alpha1\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\26.0.0-alpha1\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\support-compat\26.0.0-alpha1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.2\AndroidManifest.xml:9:5-20
 	android:label
 		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:8:13-45
 	android:supportsRtl
@@ -35,25 +36,25 @@ MERGED from [com.android.support:support-compat:26.0.0-alpha1] E:\Source\Android
 	android:theme
 		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:10:13-44
 activity#ru.neooffline.mephi.detector.MainActivity
-ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:11:9-17:20
+ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:11:9-16:20
 	android:name
 		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:11:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:12:13-16:29
+ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:12:13-15:29
 action#android.intent.action.MAIN
 ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:13:17-68
 	android:name
 		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:13:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:15:17-76
+ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:14:17-76
 	android:name
-		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:15:27-74
+		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:14:27-74
 activity#ru.neooffline.mephi.detector.AboutActivity
-ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:18:9-20:20
+ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:17:9-19:20
 	android:label
-		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:19:19-54
+		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:18:19-54
 	android:name
-		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:18:19-48
+		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:17:19-48
 uses-sdk
 INJECTED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\26.0.0-alpha1\AndroidManifest.xml:21:5-23:78
@@ -65,6 +66,7 @@ MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] E:\Source\And
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\26.0.0-alpha1\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\26.0.0-alpha1\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\support-compat\26.0.0-alpha1\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.2\AndroidManifest.xml:5:5-7:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\26.0.0-alpha1\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion

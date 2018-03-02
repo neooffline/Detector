@@ -1,4 +1,4 @@
-#Thu Mar 01 12:22:16 MSK 2018
+#Fri Mar 02 15:33:48 MSK 2018
 base.0=E\:\\Source\\AndroidSDK\\Detector\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_af823e853aa1accba97fd81d1cfb1ec428393a50
 renamed.1=classes2.dex
 renamed.0=classes.dex
