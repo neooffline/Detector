@@ -17,6 +17,9 @@
         <activity android:name=".AboutActivity"
                   android:label="@string/about_title">
         </activity>
+        <activity android:name=".SameActivity"
+                  android:label="SamePage">
+        </activity>
     </application>
 
 </manifest>

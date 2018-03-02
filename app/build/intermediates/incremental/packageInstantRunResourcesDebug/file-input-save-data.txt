@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Mar 02 15:33:44 MSK 2018
+#Fri Mar 02 15:52:09 MSK 2018
 14.set=ANDROID_RESOURCE
 180.file=E\:\\Source\\AndroidSDK\\Detector\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\abc_tint_seek_thumb.xml
 118.set=ANDROID_RESOURCE

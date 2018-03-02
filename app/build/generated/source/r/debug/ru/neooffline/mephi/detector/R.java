@@ -2332,8 +2332,8 @@ containing a value of this type.
         public static final int beginning=0x7f0c0022;
         public static final int bottom=0x7f0c002a;
         public static final int buttonPanel=0x7f0c0036;
-        public static final int buttonSettings=0x7f0c0068;
-        public static final int buttonStart=0x7f0c0067;
+        public static final int buttonSettings=0x7f0c0067;
+        public static final int buttonStart=0x7f0c0068;
         public static final int cancel_action=0x7f0c006d;
         public static final int chains=0x7f0c0010;
         public static final int checkbox=0x7f0c0046;
@@ -2532,6 +2532,7 @@ containing a value of this type.
         public static final int backButton=0x7f070025;
         public static final int search_menu_title=0x7f070013;
         public static final int settingsButton=0x7f070026;
+        public static final int startButton=0x7f070027;
         public static final int status_bar_notification_info_overflow=0x7f070014;
     }
     public static final class style {

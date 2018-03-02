@@ -597,8 +597,8 @@ int id basic 0x7f0c000f
 int id beginning 0x7f0c0022
 int id bottom 0x7f0c002a
 int id buttonPanel 0x7f0c0036
-int id buttonSettings 0x7f0c0068
-int id buttonStart 0x7f0c0067
+int id buttonSettings 0x7f0c0067
+int id buttonStart 0x7f0c0068
 int id cancel_action 0x7f0c006d
 int id chains 0x7f0c0010
 int id checkbox 0x7f0c0046
@@ -787,6 +787,7 @@ int string app_name 0x7f070024
 int string backButton 0x7f070025
 int string search_menu_title 0x7f070013
 int string settingsButton 0x7f070026
+int string startButton 0x7f070027
 int string status_bar_notification_info_overflow 0x7f070014
 int style AlertDialog_AppCompat 0x7f09009f
 int style AlertDialog_AppCompat_Light 0x7f0900a0

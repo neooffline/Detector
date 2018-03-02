@@ -5,4 +5,5 @@
     <string name="backButton">Назад</string>
     <string name="about_title">About</string>
     <string name="settingsButton">Настройки</string>
+    <string name="startButton">Старт</string>
 </resources>
