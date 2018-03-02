@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:2:1-22:12
+ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:2:1-25:12
 	package
 		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:3:11-49
 		INJECTED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:2:1-22
 		INJECTED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml
 		INJECTED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml
 application
-ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:5:5-20:19
+ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:5:5-23:19
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\26.0.0-alpha1\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\support-v4\26.0.0-alpha1\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\26.0.0-alpha1\AndroidManifest.xml:29:5-20
@@ -55,6 +55,12 @@ ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:17:9-1
 		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:18:19-54
 	android:name
 		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:17:19-48
+activity#ru.neooffline.mephi.detector.SameActivity
+ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:20:9-22:20
+	android:label
+		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:21:19-43
+	android:name
+		ADDED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml:20:19-47
 uses-sdk
 INJECTED from E:\Source\AndroidSDK\Detector\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] E:\Source\AndroidSDK\Detector\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\26.0.0-alpha1\AndroidManifest.xml:21:5-23:78

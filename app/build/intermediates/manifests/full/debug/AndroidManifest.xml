@@ -29,6 +29,10 @@
             android:name="ru.neooffline.mephi.detector.AboutActivity"
             android:label="@string/about_title" >
         </activity>
+        <activity
+            android:name="ru.neooffline.mephi.detector.SameActivity"
+            android:label="SamePage" >
+        </activity>
     </application>
 
 </manifest>
