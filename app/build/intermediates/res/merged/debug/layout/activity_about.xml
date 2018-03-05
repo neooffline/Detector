@@ -5,13 +5,6 @@
                 android:paddingLeft="@dimen/activity_vertical_margin" android:paddingRight="@dimen/activity_vertical_margin"
 >
 
-    <Button
-            android:text="@string/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/backToMain"
-            android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
-            android:onClick="backToMain (AboutActivity)"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -37,4 +30,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/spinner" android:spinnerMode="dialog"/>
     </LinearLayout>
+    <Button
+            android:text="@string/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/backToMain"
+            android:onClick="backToMain (AboutActivity)" android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
 </RelativeLayout>
