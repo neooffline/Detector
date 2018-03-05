@@ -12,11 +12,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         }
     public void settingsCall (View view){
-        Intent intent = new Intent(this, AboutActivity.class);
-        startActivity(intent);
+        Intent toSetings = new Intent(this, AboutActivity.class);
+        startActivity(toSetings);
     }
     public void sameActivity (View view){
-        Intent intent2 = new Intent(this, SameActivity.class);
-        startActivity(intent2);
+        Intent toSameActivity = new Intent(this, SameActivity.class);
+        startActivity(toSameActivity);
     }
 }

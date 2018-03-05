@@ -12,7 +12,7 @@ public class AboutActivity extends Activity {
         setContentView(R.layout.activity_about);
     }
     public void backToMain (View view){
-        Intent intent2 = new Intent(this, MainActivity.class);
-        startActivity(intent2);
+        Intent backToMain = new Intent(this, MainActivity.class);
+        startActivity(backToMain);
     }
 }
