@@ -2590,7 +2590,7 @@ public final class R {
     public static final int a_b=0x7f080000;
     public static final int abc_config_activityDefaultDur=0x7f080001;
     public static final int abc_config_activityShortDur=0x7f080002;
-    public static int b_a=0x7f080003;
+    public static final int b_a=0x7f080003;
     public static final int cancel_button_image_alpha=0x7f080004;
     public static final int status_bar_notification_info_maxnum=0x7f080005;
   }

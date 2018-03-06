@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.autofill.AutofillValue;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,10 +21,8 @@ public class MainActivity extends AppCompatActivity {
         Intent toSameActivity = new Intent(this, SameActivity.class);
         startActivity(toSameActivity);
     }
-    protected void textFill (View view) {
-        TextView change_uDat_var = (TextView) findViewById(R.id.uDat_var);
-        R.integer.b_a = R.integer.a_b;
-        change_uDat_var.setText((Integer) R.integer.b_a);
-
+    protected void textFill (View v) {
+        final TextView textFill_uDat = (TextView) findViewById(R.id.uDat_var);
+        //textFill_uDat.autofill(R.integer.b_a);
     }
 }
