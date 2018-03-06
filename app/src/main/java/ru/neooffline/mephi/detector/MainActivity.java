@@ -21,12 +21,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toSameActivity);
     }
     protected void textFill (View view) {
-        Intent change_uDat = new Intent(this, MainActivity.class);
-        startActivity(change_uDat);
-        Integer a = 15;
-        Integer b = a + 5;
         TextView change_uDat_var = (TextView) findViewById(R.id.uDat_var);
-        change_uDat_var.setText(b);
+        R.integer.b_a = R.integer.a_b;
+        change_uDat_var.setText((Integer) R.integer.b_a);
 
     }
 }

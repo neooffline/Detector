@@ -651,10 +651,10 @@ public final class R {
         public static final int wrap_content = 0x7f070088;
     }
     public static final class integer {
-        public static final int abc_config_activityDefaultDur = 0x7f080000;
-        public static final int abc_config_activityShortDur = 0x7f080001;
-        public static final int cancel_button_image_alpha = 0x7f080002;
-        public static final int status_bar_notification_info_maxnum = 0x7f080003;
+        public static final int abc_config_activityDefaultDur = 0x7f080001;
+        public static final int abc_config_activityShortDur = 0x7f080002;
+        public static final int cancel_button_image_alpha = 0x7f080004;
+        public static final int status_bar_notification_info_maxnum = 0x7f080005;
     }
     public static final class layout {
         public static final int abc_action_bar_title_item = 0x7f090000;
