@@ -13,7 +13,7 @@
         android:label="Tests for ru.neooffline.mephi.detector"
         android:targetPackage="ru.neooffline.mephi.detector" />
 
-    <application>
+    <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
     </application>
 

@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="com.android.support:support-media-compat-26.0.0-alpha1">
     <CLASSES>
-      <root url="jar://C:/Users/Public/Documents/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/399343e55027849cd281c16a636aa331/jars/classes.jar!/" />
-      <root url="file://C:/Users/Public/Documents/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/399343e55027849cd281c16a636aa331/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/071b8518becd06401f8fd198c6c1825a/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/071b8518becd06401f8fd198c6c1825a/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../sdk/extras/android/m2repository/com/android/support/support-media-compat/26.0.0-alpha1/support-media-compat-26.0.0-alpha1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../extras/android/m2repository/com/android/support/support-media-compat/26.0.0-alpha1/support-media-compat-26.0.0-alpha1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -6,4 +6,6 @@
     <string name="about_title">About</string>
     <string name="settingsButton">Настройки</string>
     <string name="startButton">Старт</string>
+    <string name="stopButton">Стоп</string>
+    <string name="newWorkButton">Нов.</string>
 </resources>
