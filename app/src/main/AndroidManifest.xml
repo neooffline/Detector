@@ -20,6 +20,9 @@
         <activity android:name=".SameActivity"
                   android:label="SamePage">
         </activity>
+        <activity android:name=".SettingsActivity"
+                  android:label="SamePage">
+        </activity>
     </application>
 
 </manifest>

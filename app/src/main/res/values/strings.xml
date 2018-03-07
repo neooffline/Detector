@@ -8,4 +8,10 @@
     <string name="startButton">Старт</string>
     <string name="stopButton">Стоп</string>
     <string name="newWorkButton">Нов.</string>
+    <string name="voldDim">мВ</string>
+    <string name="capacityDim">мкФ</string>
+    <string name="tempDime">К</string>
+    <string name="settings_Detc_Options">Параметры датчика:</string>
+    <string name="settings_Detc_name">Название:</string>
+    <string name="settings_Save_button">СОХРАНИТЬ</string>
 </resources>

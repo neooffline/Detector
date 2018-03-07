@@ -13,16 +13,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         }
-    public void settingsCall (View view){
-        Intent toSetings = new Intent(this, AboutActivity.class);
-        startActivity(toSetings);
+    public void callAboutActivity (View view){
+        Intent toAbout = new Intent(this, AboutActivity.class);
+        startActivity(toAbout);
+    }
+    public void callSettingsActivity (View view){
+        Intent toSettings = new Intent(this, SettingsActivity.class);
+        startActivity(toSettings);
     }
     public void sameActivity (View view){
         Intent toSameActivity = new Intent(this, SameActivity.class);
         startActivity(toSameActivity);
     }
-    protected void textFill (View v) {
+    public void textFill (View view) {
         final TextView textFill_uDat = (TextView) findViewById(R.id.uDat_var);
+        final TextView textFill_cDat = (TextView) findViewById(R.id.cDat_var);
+        final TextView textFill_tDat = (TextView) findViewById(R.id.tDat_var);
+        textFill_uDat.setText(String.valueOf(SameActivity.getVoltageValue()));
+        textFill_cDat.setText(String.valueOf(SameActivity.getCapacityValue()));
+        textFill_tDat.setText(String.valueOf(SameActivity.getTemperatureValue()));
         //textFill_uDat.autofill(R.integer.b_a);
     }
 }

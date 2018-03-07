@@ -35,6 +35,10 @@
             android:name="ru.neooffline.mephi.detector.SameActivity"
             android:label="SamePage" >
         </activity>
+        <activity
+            android:name="ru.neooffline.mephi.detector.SettingsActivity"
+            android:label="SamePage" >
+        </activity>
 
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"

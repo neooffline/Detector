@@ -5,14 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class AboutActivity extends Activity {
+
+public class SettingsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_settings);
     }
-    public void backToMain1 (View view){
-        Intent backToMain1 = new Intent(this, MainActivity.class);
-        startActivity(backToMain1);
+    public void backToMain2 (View view){
+        Intent backToMain2 = new Intent(this, MainActivity.class);
+        startActivity(backToMain2);
     }
 }
