@@ -11,6 +11,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.DuplicateFormatFlagsException;
 import java.util.Random;
 
 /**
@@ -41,7 +45,7 @@ public class SameActivity extends AppCompatActivity {
         for (int i = 1; i < 10; i++) {
             Random random = new Random();
             Double randNumber = random.nextDouble() * 15;
-            sensoreVoltageArray[i] = randNumber;
+            sensoreVoltageArray[i] = (double) Math.round(randNumber * 100d)/100d;
         }
         for (int i = 1; i <10; i++) {
             return sensoreVoltageArray[i];
@@ -53,7 +57,7 @@ public class SameActivity extends AppCompatActivity {
         for (int i = 1; i < 10; i++){
             Random random = new Random();
             Double randNumber = random.nextDouble() *5;
-            sensoreCapacityArray[i] = randNumber;
+            sensoreCapacityArray[i] = (double) Math.round(randNumber * 1000d)/1000d;
         }
         for (int i = 1; i <10; i++){
             return sensoreCapacityArray[i];

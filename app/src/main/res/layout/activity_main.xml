@@ -36,7 +36,7 @@
 
     <TableLayout
         android:layout_width="615dp"
-        android:layout_height="50dp"
+        android:layout_height="97dp"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="264dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,9 +44,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textView5"
@@ -61,6 +59,7 @@
                 android:id="@+id/uDat_var"
                 android:layout_width="70dp"
                 android:layout_height="30dp"
+                android:text="0"
                 android:textSize="22sp" />
 
             <TextView
@@ -85,6 +84,7 @@
                 android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:gravity="left"
+                android:text="0"
                 android:textSize="22sp" />
 
             <TextView
@@ -94,6 +94,13 @@
                 android:gravity="left"
                 android:text="@string/capacityDim"
                 android:textSize="22sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/tDat"
@@ -105,9 +112,10 @@
 
             <TextView
                 android:id="@+id/tDat_var"
-                android:layout_width="55dp"
+                android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:gravity="left"
+                android:text="0"
                 android:textSize="22sp" />
 
             <TextView
