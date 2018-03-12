@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rss version="0.91"><channel><title>jamod Changes</title><link>http://jamod.sourceforge.netchanges.html</link><description>jamod Changes</description><language>en-us</language><item><title> update</title><link>http://jamod.sourceforge.netchanges.html</link><description> update
+              by 
+              wimpi
+              :
+              
+&#9;    Updated source and build script to allow dual build for normal and embedded systems. 
+&#9;    Certain API was not supported for SNAP/Tini like API's and thus needs to be avoided
+&#9;    as long as it is not a mayor inconvenience.
+&#9;  </description></item><item><title> fix
+                (bug 981328)
+              </title><link>http://jamod.sourceforge.netchanges.html</link><description> fix
+              by 
+              wimpi
+                (fixes bug 981328)
+              
+              :
+              
+&#9;    Fixed problem reported as Bug #981328 "ClassCastException in ModbusTCPMaster.readInputRegisters()".
+&#9;   Thanks to Markus Kuespert.</description></item><item><title> fix
+                (bug 981328)
+              </title><link>http://jamod.sourceforge.netchanges.html</link><description> fix
+              by 
+              wimpi
+                (fixes bug 981328)
+              
+              :
+              
+&#9;    Fixed problem reported as Bug #981328 "ClassCastException in ModbusTCPMaster.readInputRegisters()".
+&#9;   Thanks to Markus Kuespert.</description></item><item><title> fix
+                (bug 981332)
+              </title><link>http://jamod.sourceforge.netchanges.html</link><description> fix
+              by 
+              wimpi
+                (fixes bug 981332)
+              
+              :
+              
+&#9;    Fixed problem reported as Bug #981332 "TCPMasterConnection: connect() and close() may throw NPE".
+&#9;&#9;  Also udpated other connection with some basic assertions.
+&#9;   Thanks to Markus Kuespert.</description></item><item><title> fix
+                (bug 990579)
+              </title><link>http://jamod.sourceforge.netchanges.html</link><description> fix
+              by 
+              wimpi
+                (fixes bug 990579)
+              
+              :
+              
+      Fixed problem with the ASCIIInputStream read() causing troubles with invalid messages.
+     Thanks to Matthew Lohbihler.</description></item><item><title> fix
+                (bug 990586)
+              </title><link>http://jamod.sourceforge.netchanges.html</link><description> fix
+              by 
+              wimpi
+                (fixes bug 990586)
+              
+              :
+              
+      Fixed problem with the ModbusASCIITransport readResponse() (removed nonsense Unit ID check).
+     Thanks to Matthew Lohbihler.</description></item><item><title> fix
+                (bug 990590)
+              </title><link>http://jamod.sourceforge.netchanges.html</link><description> fix
+              by 
+              wimpi
+                (fixes bug 990590)
+              
+              :
+              
+      Fixed problems with the ModbusASCIIITransport LRC byte indexing in readResponse() and readRequest().
+     Thanks to Matthew Lohbihler.</description></item><item><title> fix
+                (bug 990578)
+              </title><link>http://jamod.sourceforge.netchanges.html</link><description> fix
+              by 
+              wimpi
+                (fixes bug 990578)
+              
+              :
+              
+      Fixed problems with SerialParameters and changed everything to LOWERCASE. String.equalsIgnoreCase(String) is
+      not supported in some Java 1 Implementations (like SNAP).
+     Thanks to Matthew Lohbihler, Dieter Wimberger.</description></item><item><title> fix</title><link>http://jamod.sourceforge.netchanges.html</link><description> fix
+              by 
+              wimpi
+              :
+              
+      Corrected reference to point to jamod CVS in documentation menu.
+    </description></item><item><title> add</title><link>http://jamod.sourceforge.netchanges.html</link><description> add
+              by 
+              wimpi
+              :
+              
+      Added Modbus/BIN (new serial flavor) implementation and documentation.
+    </description></item><item><title> fix
+                (bug 1025400)
+              </title><link>http://jamod.sourceforge.netchanges.html</link><description> fix
+              by 
+              wimpi
+                (fixes bug 1025400)
+              
+              :
+              
+      Fixed problem reported as bug #1025400 "CRC byte ordering in RTU mode incorrect".
+      Note that the CRC calculation has been moved to the ModbusUtil and is also
+      used for the ModbusBINTransport.
+     Thanks to Shane Harrison.</description></item><item><title> add</title><link>http://jamod.sourceforge.netchanges.html</link><description> add
+              by 
+              wimpi
+              :
+              
+      Added support for build depending on gnu.io and RXTXcomm.jar.
+    </description></item><item><title> fix</title><link>http://jamod.sourceforge.netchanges.html</link><description> fix
+              by 
+              wimpi
+              :
+              
+      Fixed problem with stream inheritance for all serial input and
+      output streams.
+     Thanks to John Charlton.</description></item><item><title> update</title><link>http://jamod.sourceforge.netchanges.html</link><description> update
+              by 
+              jdcharlton
+              :
+              
+      Refactored ModbusSerialTransport and subclasses and converted to abstract base
+      class. Modified SerialConnection to set the CommPort member of
+      ModbusSerialTransport which calls the prepareStreams abstract method for
+      subclasses.  Cleaned up and refactored RS-485 echo processing, and timeout
+      handling.  Implemented retry in ModbusSerialTransaction execute method.
+    </description></item><item><title> add</title><link>http://jamod.sourceforge.netchanges.html</link><description> add
+              by 
+              jdcharlton
+              :
+              
+      Added facade/ModbusSerialMaster and associated test driver cmd/SerialFacadeTest
+      to simplify implementing modbus serial masters.
+    </description></item><item><title> update</title><link>http://jamod.sourceforge.netchanges.html</link><description> update
+              by 
+              wimpi
+              :
+              
+      Refactored BitVector to ensure it works properly and is less confusing to use.
+      The default start index (i.e. 0) will now ALWAYS refer to the LSB (rightmost bit);
+      setStartLSB() has been removed, instead toggleAccess(), isMSBAccess()
+      and isLSBAccess()have been added; toString() will now ALWAYS have the MSB
+      as the leftmost and the LSB as the rightmost bit in each byte,
+      no matter what access type has been set. This seems to be much less confusing
+      during debugging;
+    </description></item><item><title> add</title><link>http://jamod.sourceforge.netchanges.html</link><description> add
+              by 
+              wimpi
+              :
+              
+      Added new factory method to BitVector that allows to pass a bit count.
+      Added method to allow forcing the bit count of the BitVector instance
+      within the limit of the byte[] store for the bits.
+    </description></item><item><title> fix</title><link>http://jamod.sourceforge.netchanges.html</link><description> fix
+              by 
+              wimpi
+              :
+              
+      Fixes to various places in the code where the BitVector is used.
+    </description></item><item><title> update</title><link>http://jamod.sourceforge.netchanges.html</link><description> update
+              by 
+              wimpi
+              :
+              
+      Refactored WriteMultipleRegisters to accept a BitVector in constructor
+      and added a setter. The bitcount is now exclusively handled through
+      the associated BitVector instance.
+    </description></item><item><title> update</title><link>http://jamod.sourceforge.netchanges.html</link><description> update
+              by 
+              wimpi
+              :
+              
+      Changed ModbusCoupler Singleton to static initialization and removed
+      factory methods and its uses throughout the code (cmd package).
+    </description></item><item><title> update</title><link>http://jamod.sourceforge.netchanges.html</link><description> update
+              by 
+              wimpi
+              :
+              
+      InputRegister and Register instances in the default function messages
+      will now be created using the factory instance obtained from
+      the ModbusCoupler singleton.
+    </description></item><item><title> update</title><link>http://jamod.sourceforge.netchanges.html</link><description> update
+              by 
+              wimpi
+              :
+              
+      Refactored all facades to have equal and more Java like signatures
+      for the default master function methods.
+      The number of returned elements is ruled by the slave response, except
+      in the case of the function for reading multiple coils and input discretes
+      (the bitcount is forced to the number requested, as it is not contained in
+      the slave response).
+    </description></item></channel></rss>

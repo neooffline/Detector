@@ -1,0 +1,684 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="Apache Forrest" name="Generator">
+<meta name="Forrest-version" content="1.2rc1">
+<meta name="Forrest-skin-name" content="tigris">
+<style type="text/css">
+          /*  */ 
+          @import "../skin/tigris.css";  
+          @import "../skin/quirks.css"; 
+          @import "../skin/inst.css"; 
+         /*   */
+        </style>
+<link media="print" href="../skin/print.css" type="text/css" rel="stylesheet">
+<link href="../skin/forrest.css" type="text/css" rel="stylesheet">
+<link rel="shortcut icon" href="../">
+<script type="text/javascript" src="../skin/tigris.js"></script><script src="../skin/menu.js" language="javascript" type="text/javascript"></script>
+<title>Understanding the Process Image</title>
+<meta content="text/css" http-equiv="Content-style-type">
+</head>
+<body class="composite" onload="focus()">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" border="0">
+<tr>
+<td align="left"></td><td align="center">
+<div>
+<a href="http://jamod.sourceforge.net"><img class="logoImage" alt="jamod" src="../images/project-logo.png"></a>
+</div>
+</td><td valign="top" align="right">
+<div class="right" align="right" id="login">
+<form target="_blank" action="http://www.google.com/search" method="get">
+<select name="as_sitesearch"><option value="">Search...</option><option value="jamod.sourceforge.net">The jamod site</option><option value="">The web</option></select> for 
+		      <input size="15" name="as_q" id="query" type="text"><input name="Search" value="Go" type="submit">
+</form>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="toptabs" class="tabs">
+<table border="0" cellspacing="0" cellpadding="4">
+<tr>
+<td><a class="base-selected" href="../index.html">Home</a></td><th><a class="base-selected" href="../development/index.html">Development</a></th><td><a class="base-selected" href="http://www.sourceforge.net/projects/jamod">SF Project Home</a></td>
+</tr>
+</table>
+</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="breadcrumbs">
+<tr>
+<td></td><td>
+<div align="right">
+<script type="text/javascript" language="JavaScript"><!--
+                 document.write("Published: " + document.lastModified);
+                 //  --></script>
+</div>
+</td>
+</tr>
+</table>
+<table id="main" width="100%" cellpadding="4" cellspacing="0" border="0">
+<tr valign="top">
+<td width="20%" id="leftcol">
+<div id="navcolumn">
+<div class="toolgroup" id="projecttools">
+<div class="label">
+<strong>Section</strong>
+</div>
+<div class="menu">
+<div class="body">
+<div>
+<a href="">About</a>
+      
+<div>
+<a href="../index.html">Index</a>
+</div>
+      
+<div>
+<a href="http://sourceforge.net/news/?group_id=48413">News</a>
+</div>
+      
+<div>
+<a href="../license.html">License</a>
+</div>
+      
+<div>
+<a href="../project_users.html">Who is using jamod?</a>
+</div>   
+      
+<div>
+<a href="http://sourceforge.net/project/showfiles.php?group_id=48413">Download</a>
+</div>
+      
+<div>
+<a href="http://www.sourceforge.net/projects/jamod">SF Project Home</a>
+</div>
+	  
+<div>
+<a href="../changes.html">Changes</a>
+</div>
+      
+<div>
+<a href="../todo.html">Todo</a>
+</div>
+    
+</div>
+<div>
+<a href="">Getting Involved</a>
+      
+<div>
+<a href="http://sourceforge.net/forum/?group_id=48413">Discussion Fora</a>
+</div>
+      
+<div>
+<a href="http://sourceforge.net/tracker/?group_id=48413&atid=452990">Support Requests</a>
+</div>
+      
+<div>
+<a href="../mailing_lists.html">Mailing Lists</a>
+</div>
+      
+<div>
+<a href="http://sourceforge.net/tracker/?group_id=48413&atid=452989">Bug Reporting &amp; Tracking</a>
+</div>
+      
+<div>
+<a href="http://sourceforge.net/tracker/?group_id=48413&atid=452992">Feature Request</a>
+</div>
+    
+</div>
+<div>
+<a href="../kbase/">Knowledge Base</a>
+	  
+<div>
+<a href="../kbase/index.html">Index</a>
+</div>
+	  
+<div>
+<a href="../kbase/protocol.html">Understanding the Protocol</a>
+</div>
+	  
+<div>
+<a href="../kbase/modbus_udp.html">Modbus/UDP</a>
+</div>
+    
+<div>
+<a href="../kbase/modbus_bin.html">Modbus/BIN</a>
+</div>
+	
+</div>
+<div>
+<a href="../development/">Development</a>
+	  
+<div>
+<a href="../development/index.html">Overview</a>
+</div>
+      
+<div>
+<a href="../development/project_guidelines.html">Project Guidelines</a>
+</div>      
+      
+<div>
+<a href="../development/project_build.html">Build Notes</a>
+</div>
+      
+<div>
+<a href="">CVS Repository</a>
+        
+<div>
+<a href="http://sourceforge.net/cvs/?group_id=48413">access information</a>
+</div>
+        
+<div>
+<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/jamod">online browsing</a>
+</div>
+      
+</div>
+	  
+<div>
+<a href="">HOW-TO's</a>
+	    
+<div>
+<a href="../development/serial_master_howto.html">Serial Master</a>
+</div>
+		
+<div>
+<a href="../development/tcp_master_howto.html">TCP Master</a>
+</div>
+		
+<div>
+<a href="../development/udp_master_howto.html">UDP Master</a>
+</div>
+	    
+<div>
+<a href="../development/processimage.html">Process Image</a>
+</div>
+		
+<div>
+<a href="../development/serial_slave_howto.html">Serial Slave</a>
+</div>
+		
+<div>
+<a href="../development/tcp_slave_howto.html">TCP Slave</a>
+</div>
+		
+<div>
+<a href="../development/udp_slave_howto.html">UDP Slave</a>
+</div>
+	  
+</div>
+	  
+<div>
+<a href="../api/index.html">API Documentation</a>
+</div>
+    
+</div>
+<div>
+<a href="">Credits</a>
+      
+<div>
+<a href="../project_credits.html">Project Credits</a>
+</div>
+      
+<div>
+<a href="../project_legalnotices.html">Legal Notices</a>
+</div>
+    
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="strut">&nbsp;</div>
+</td><td>
+<div class="content">
+<div align="right" id="topmodule">
+<table width="100%" cellpadding="3" cellspacing="0" border="0">
+<tr>
+<td class="tasknav"><a href="http://www.sourceforge.net">SF</a> &gt; <a href="http://www.sourceforge.net/projects/jamod">jamod</a><script src="../skin/breadcrumbs.js" language="JavaScript" type="text/javascript"></script></td><td class="tasknav" id="issueid">
+<div align="right">
+<div id="skinconf-txtlink"></div>
+<div title="Portable Document Format" class="pdflink">
+<a class="dida" href="processimage.pdf"><img alt="PDF -icon" src="../skin/images/pdfdoc.gif" class="skin"><br>
+        PDF</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="bodycol">
+<div id="apphead">
+<h2>
+<em>Understanding the Process Image</em>
+</h2>
+</div>
+<div class="app" id="projecthome">
+<ul class="minitoc">
+<li>
+<a href="#About">About</a>
+</li>
+<li>
+<a href="#ProcessImage">What is a Process Image?</a>
+<ul class="minitoc">
+<li>
+<a href="#ProcessImageModbus">A Process Image for Modbus</a>
+</li>
+<li>
+<a href="#DigitalInput">Digital Input</a>
+</li>
+<li>
+<a href="#DigitalOutput">Digital Output</a>
+</li>
+<li>
+<a href="#InputRegister">Input Register</a>
+</li>
+<li>
+<a href="#Register">Register</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#ProcessImageCollection">ProcessImage - The Collection</a>
+</li>
+<li>
+<a href="#Implementation">Example Implementation and Extensibility</a>
+<ul class="minitoc">
+<li>
+<a href="#How+to+make+use+of+the+Model">How to make use of the Model</a>
+</li>
+</ul>
+</li>
+</ul> 
+    
+<a name="N10016"></a><a name="About"></a>
+<div class="h3">
+<h3>About</h3>
+      
+	  
+<p>
+	    This document should help the reader to understand the ideas behind the abstraction 
+        of a process image suited for the Modbus basic data types.<br>
+      
+</p>  
+    
+</div>
+    
+<a name="N10022"></a><a name="ProcessImage"></a>
+<div class="h3">
+<h3>What is a Process Image?</h3>
+	  
+      
+<p>
+       Lets assume we have a continuous ongoing process and we are using measurements 
+       to observe the process. The measurements will be made at certain points in time, 
+       representing a discretization of the actual measured functions into a sequence 
+       of sets {f(t<sub>i</sub>), g(t<sub>i</sub>), h(t<sub>i</sub>), ...}. Each set 
+       of values should be homogenous in relation to time, i.e. the values should correspond 
+       to one and the same point in time t<sub>i</sub> to be meaningful for observations 
+       (or control) of the process.<br>
+       Especially if we have multiple "users" (i.e. corresponding control programs, 
+       network data acquisition, visualization etc.) accessing the data concurrently, 
+       we want to ensure this property. Thus requests are not directly made to corresponding 
+       I/O modules, but rather to a set corresponding to a certain point in time, that 
+       is stored cyclically in a block of memory (usually deploying some kind of synchronization 
+       mechanism for sequential access). This memory stored set of process measurements 
+       (or I/O states) is often called "process image", as it represents the 
+       state of a process at a certain point of time (respectively in terms of what we 
+       can measure).
+	 </p>
+     
+<a name="N10039"></a><a name="ProcessImageModbus"></a>
+<div class="h4">
+<h4>A Process Image for Modbus</h4>
+<p>
+       As described in <a href="../kbase/protocol.html#DataModel">Understanding the Protocol 
+       - Modbus Data Model</a>, a set of simple data types is defined by the Modbus specification. 
+       The following list presents the abstract models for the different corresponding 
+       types of the data model:
+	 </p>
+<ol>
+       
+<li>a <a href="#DI">Digital Input</a> (for a <em>discrete input</em>)</li>
+       
+<li>a <a href="#DO">Digital Output</a> (for a <em>discrete output</em> or <em>coil</em>)</li>
+       
+<li>an <a href="#IR">Input Register</a> (for an <em>input register</em>)</li>
+       
+<li>a <a href="#RE">Register</a> (for a <em>holding register</em>)</li>
+     
+</ol>
+<p>
+	   The accessible and modifiable collection of elements which are instances of 1-4 
+       is an abstraction of the idea of a process image, like presented before. All of 
+       these elements are discussed in the following subsections.
+	 </p>
+</div>
+	
+<a name="DI"></a>
+    <a name="N1007B"></a><a name="DigitalInput"></a>
+<div class="h4">
+<h4>Digital Input</h4>
+<p>
+        Basically represents an abstraction for an input that is fed by a digital sensor 
+        (i.e. 1 or 0, respectively true/false or on/off etc.). Figure 1 presents a possible 
+        symbolic notation and the interface representing the corresponding software model 
+        (<a href="../api/net/wimpi/modbus/procimg/DigitalIn.html"><span class="codefrag">DigitalIn</span></a>).
+	  </p>
+<div class="h4">
+<h4>Figure 1: Digital Input Model</h4>
+<table class="grid" width="100%" cellpadding="3" cellspacing="2" border="1">
+		  
+          
+<tr> 
+            
+<td colspan="1" rowspan="1">
+<div align="center">
+<img class="figure" alt="" src="../images/procimage_digitalin.png" height="110" width="137"></div>
+</td> 
+		    <td colspan="1" rowspan="1">
+<div align="center">
+<img class="figure" alt="" src="../images/discrete_input.png" height="24" width="114"></div>
+</td> 
+          
+</tr>
+        
+</table>
+</div>
+<p>
+        It consists of isSet() and isValid(), latter for checking whether the returned 
+        state of the input is valid.	  
+	  </p>
+</div>
+	
+<a name="DO"></a>
+	<a name="N100AB"></a><a name="DigitalOutput"></a>
+<div class="h4">
+<h4>Digital Output</h4>
+<p>
+	    Basically represents an abstraction for an I/O connected to a digital actor. It 
+        can be in, as well as switched into, the states on/off (respectively true/false 
+        or 1/0 etc.). Figure 2 presents a possible symbolic notation of the input states 
+        and the interface representing the corresponding software model 
+		(<a href="../api/net/wimpi/modbus/procimg/DigitalOut.html"><span class="codefrag">DigitalOut</span></a>).
+	  </p>
+<div class="h4">
+<h4>Figure 2: Digital Output Model</h4>
+<table class="grid" width="100%" cellpadding="3" cellspacing="2" border="1">
+	    
+        
+<tr> 
+          
+<td colspan="1" rowspan="1">
+<div align="center">
+<img class="figure" alt="" src="../images/procimage_digitalout.png" height="110" width="137"></div>
+</td>
+          <td colspan="1" rowspan="1">
+<div align="center">
+<img class="figure" alt="" src="../images/discrete_output.png" height="55" width="95"></div>
+</td>
+        
+</tr>
+      
+</table>
+</div>
+<p>
+        It consists of isSet(), set(boolean) and isValid(), latter for checking whether 
+        the returned state of the output is valid.
+	  </p>
+</div>
+	
+<a name="IR"></a>
+    <a name="N100DB"></a><a name="InputRegister"></a>
+<div class="h4">
+<h4>Input Register</h4>
+<p>
+        Represents an abstraction for an analog input that is fed by an analog sensor. 
+        It can take a range of values, which is basically limited by the number of possible 
+        values for a 16 bit Integer. Figure 3presents a possible symbolic notation and 
+        the interface representing the corresponding software model
+	    (<a href="../api/net/wimpi/modbus/procimg/InputRegister.html"><span class="codefrag">InputRegister</span></a>).
+      </p>
+<div class="h4">
+<h4>Figure 3: Input Register Model</h4>
+<table class="grid" width="100%" cellpadding="3" cellspacing="2" border="1">
+	    
+        
+<tr> 
+          
+<td colspan="1" rowspan="1">
+<div align="center">
+<img class="figure" alt="" src="../images/procimage_inputregister.png" height="110" width="137"></div>
+</td>
+          <td colspan="1" rowspan="1">
+<div align="center">
+<img class="figure" alt="" src="../images/input_register.png" height="36" width="120"></div>
+</td>
+        
+</tr>
+      
+</table>
+</div>
+<p>
+        It consists of getValue() and isValid(), latter for checking whether the returned 
+        value of the input is valid.
+      </p>
+</div>
+	
+<a name="RE"></a>
+	<a name="N1010B"></a><a name="Register"></a>
+<div class="h4">
+<h4>Register</h4>
+<p>
+        Represents an abstraction for an analog I/O connected to an analog actor. It can 
+        take and be set a range of values, which is limited by the number of possible 
+        values for a 16 bit Integer. Figure 4 presents a possible symbolic notation and 
+        the interface representing the corresponding software model 
+		(<a href="../api/net/wimpi/modbus/procimg/Register.html"><span class="codefrag">Register</span></a>).
+	  </p>
+<div class="h4">
+<h4>Figure 4: Register Model</h4>
+<table class="grid" width="100%" cellpadding="3" cellspacing="2" border="1">
+	    
+        
+<tr> 
+         
+<td colspan="1" rowspan="1">
+<div align="center">
+<img class="figure" alt="" src="../images/procimage_register.png" height="110" width="137"></div>
+</td>
+         <td colspan="1" rowspan="1">
+<div align="center">
+<img class="figure" alt="" src="../images/holding_register.png" height="28" width="117"></div>
+</td>
+        
+</tr>
+      
+</table>
+</div>
+<p>
+        It consists of getValue(), setValue(int) and isValid(), latter for checking whether 
+        the returned value of the I/O is valid.
+      </p>
+</div>
+  
+</div>
+  
+<a name="PIC"></a>
+  <a name="N1013C"></a><a name="ProcessImageCollection"></a>
+<div class="h3">
+<h3>ProcessImage - The Collection</h3>
+    
+	
+<p>
+      Represents the actual process image, a collection of all instances of the formerly 
+      presented elements (<a href="#DI">DigitalIn</a>, <a href="#DO">DigitalOut</a>
+	  , <a href="#IR">InputRegister</a>, <a href="#RE">Register</a>). According 
+      to the Modbus specification, the simplest organization of this data in "memory" 
+      for a virtual device which has no real memory limits, are separate blocks for 
+      each data type. The resulting software model 
+	  (<a href="../api/net/wimpi/modbus/procimg/ProcessImage.html"><span class="codefrag">ProcessImage</span></a>, 
+      and <a href="../api/net/wimpi/modbus/procimg/ProcessImageImplementation.html"><span class="codefrag">ProcessImageImplementation</span></a>) 
+      are presented in Figure 5.
+	</p>  
+    
+<div class="h4">
+<h4>Figure 5: Process Image Model</h4>
+<table class="grid" width="100%" cellpadding="3" cellspacing="2" border="1">
+	  
+      
+<tr> 
+        
+<td colspan="1" rowspan="1">
+<div align="center">
+<img class="figure" alt="" src="../images/procimage_interface.png" height="469" width="335"></div>
+</td>
+      
+</tr>
+    
+</table>
+</div>
+  
+</div>
+  
+<a name="N10172"></a><a name="Implementation"></a>
+<div class="h3">
+<h3>Example Implementation and Extensibility</h3>
+    
+    
+<p>
+      The presented model is definitely kept very simple, but it is extremely powerful. 
+      First, it is possible to simply swap references of two 
+	  <a href="#PIC"><span class="codefrag">ProcessImage</span></a> instances 
+      cyclically (sequential access can be ensured easily). Alternating, one presents 
+      the snapshot of a given moment in time, while the other is refreshed with new 
+      data. However, if this is not necessary, synchronization mechanisms can be still 
+      deployed at the level of element instances (respectively their implementations). 
+    </p>
+	
+<p>
+	  Second, the generic interface allows generic slave access to the standard Modbus 
+      data types; in a few lines of code you can have your Modbus slave (or server) 
+      up and running.<br>
+	  jamod comes with a very simple demonstration implementation. All related classes 
+      are prefixed with <span class="codefrag">Simple</span>:
+	</p>  
+    
+<ul>
+      
+<li>
+<a href="../api/net/wimpi/modbus/procimg/SimpleDigitalIn.html"><span class="codefrag">SimpleDigitalIn</span></a>
+</li>
+      
+<li>
+<a href="../api/net/wimpi/modbus/procimg/SimpleDigitalOut.html"><span class="codefrag">SimpleDigitalOut</span></a>
+</li>
+      
+<li>
+<a href="../api/net/wimpi/modbus/procimg/SimpleInputRegister.html"><span class="codefrag">SimpleInputRegister</span></a>
+</li>
+      
+<li>
+<a href="../api/net/wimpi/modbus/procimg/SimpleRegister.html"><span class="codefrag">SimpleRegister</span></a>
+</li>
+      
+<li>
+<a href="../api/net/wimpi/modbus/procimg/SimpleProcessImage.html"><span class="codefrag">SimpleProcessImage</span></a>
+</li>
+    
+</ul>
+	
+<p>
+	  The <span class="codefrag">set</span> methods of these classes are synchronized, which will ensure 
+      atomic access, but not a specific access order. If you are interested in specialized 
+      implementations, I recommend to take a look at:<br>
+      
+<span class="codefrag">Lea, Doug: "Concurrent Programming in Java: Design Principles and Patterns", 
+      Second Edition, Addison-Wesley, ISBN 0-201-31009-0, November 1999.</span>
+<br>
+      The online supplement (which you might want to check out for the code) is available at:<br>
+      
+<a href="http://gee.cs.oswego.edu/dl/cpj">http://gee.cs.oswego.edu/dl/cpj</a>
+	
+</p>
+	
+<a name="N101BB"></a><a name="How+to+make+use+of+the+Model"></a>
+<div class="h4">
+<h4>How to make use of the Model</h4>
+<p>
+        The basic idea behind the set of interfaces is to make the developers life more 
+        simple. The following example source will show how to implement a 
+		<a href="#DI"><span class="codefrag">DigitalIn</span></a>
+        that returns a random value. From this example and the demonstration example, 
+        you can hopefully infer a more sense making implementation, probably based on 
+        the <em>Java Native Interface (JNI)</em>.
+      </p>
+<pre class="code">
+package net.wimpi.example;
+
+import net.wimpi.modbus.procimg.*;
+import java.util.Random;
+
+public final class RandomDigitalIn
+    implements DigitalIn {
+
+ //instance variables
+ private Random m_Random;
+
+  /**
+   * Constructs a new &lt;tt&gt;RandomDigitalIn&lt;/tt&gt;.
+   */
+  public RandomDigitalIn() {
+    m_Random = new Random();
+  }//constructor
+
+  /**
+   * Constructs a new &lt;tt&gt;RandomDigitalIn&lt;/tt&gt;
+   * with a given &lt;tt&gt;Random&lt;/tt&gt; instance.
+   */
+  public RandomDigitalIn(Random rnd) {
+    m_Random = rnd;
+  }//cinstructor(Random)
+
+  public final boolean isSet() {
+    return m_Random.nextBoolean();
+  }//isSet
+
+  public final boolean isValid() {
+    return true;
+  }//isValid
+
+}//RandomDigitalIn
+      </pre>
+<p>
+        You can use instances of <span class="codefrag">RandomDigitalIn</span> in the examples of the Slave 
+        How-To's to complete the picture of the process image model idea.
+	  </p>
+</div>
+  
+</div>
+  
+<p align="right">
+<font size="-2">by&nbsp;Dieter Wimberger</font>
+</p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<div id="footer">
+<table cellpadding="4" cellspacing="0" border="0">
+<tr>
+<td><a href="http://www.sourceforge.net"><img class="logoImage" alt="" src="http://sourceforge.net/sflogo.php?group_id=48413"></a></td><td>
+          Copyright &copy; 2000-2004&nbsp;
+          jamod development team.
+      All rights reserved.
+            <br>
+<script type="text/javascript" language="JavaScript"><!--
+              document.write(" - "+"Last Published: " + document.lastModified);
+              //  --></script></td><td nowrap="nowrap" align="right"></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

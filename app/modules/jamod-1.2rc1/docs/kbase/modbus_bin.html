@@ -1,0 +1,444 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="Apache Forrest" name="Generator">
+<meta name="Forrest-version" content="1.2rc1">
+<meta name="Forrest-skin-name" content="tigris">
+<style type="text/css">
+          /*  */ 
+          @import "../skin/tigris.css";  
+          @import "../skin/quirks.css"; 
+          @import "../skin/inst.css"; 
+         /*   */
+        </style>
+<link media="print" href="../skin/print.css" type="text/css" rel="stylesheet">
+<link href="../skin/forrest.css" type="text/css" rel="stylesheet">
+<link rel="shortcut icon" href="../">
+<script type="text/javascript" src="../skin/tigris.js"></script><script src="../skin/menu.js" language="javascript" type="text/javascript"></script>
+<title>Modbus BIN Specification</title>
+<meta content="text/css" http-equiv="Content-style-type">
+</head>
+<body class="composite" onload="focus()">
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" border="0">
+<tr>
+<td align="left"></td><td align="center">
+<div>
+<a href="http://jamod.sourceforge.net"><img class="logoImage" alt="jamod" src="../images/project-logo.png"></a>
+</div>
+</td><td valign="top" align="right">
+<div class="right" align="right" id="login">
+<form target="_blank" action="http://www.google.com/search" method="get">
+<select name="as_sitesearch"><option value="">Search...</option><option value="jamod.sourceforge.net">The jamod site</option><option value="">The web</option></select> for 
+		      <input size="15" name="as_q" id="query" type="text"><input name="Search" value="Go" type="submit">
+</form>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="toptabs" class="tabs">
+<table border="0" cellspacing="0" cellpadding="4">
+<tr>
+<td><a class="base-selected" href="../index.html">Home</a></td><td><a class="base-selected" href="../development/index.html">Development</a></td><td><a class="base-selected" href="http://www.sourceforge.net/projects/jamod">SF Project Home</a></td>
+</tr>
+</table>
+</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" id="breadcrumbs">
+<tr>
+<td></td><td>
+<div align="right">
+<script type="text/javascript" language="JavaScript"><!--
+                 document.write("Published: " + document.lastModified);
+                 //  --></script>
+</div>
+</td>
+</tr>
+</table>
+<table id="main" width="100%" cellpadding="4" cellspacing="0" border="0">
+<tr valign="top">
+<td width="20%" id="leftcol">
+<div id="navcolumn">
+<div class="toolgroup" id="projecttools">
+<div class="label">
+<strong>Section</strong>
+</div>
+<div class="menu">
+<div class="body">
+<div>
+<a href="">About</a>
+      
+<div>
+<a href="../index.html">Index</a>
+</div>
+      
+<div>
+<a href="http://sourceforge.net/news/?group_id=48413">News</a>
+</div>
+      
+<div>
+<a href="../license.html">License</a>
+</div>
+      
+<div>
+<a href="../project_users.html">Who is using jamod?</a>
+</div>   
+      
+<div>
+<a href="http://sourceforge.net/project/showfiles.php?group_id=48413">Download</a>
+</div>
+      
+<div>
+<a href="http://www.sourceforge.net/projects/jamod">SF Project Home</a>
+</div>
+	  
+<div>
+<a href="../changes.html">Changes</a>
+</div>
+      
+<div>
+<a href="../todo.html">Todo</a>
+</div>
+    
+</div>
+<div>
+<a href="">Getting Involved</a>
+      
+<div>
+<a href="http://sourceforge.net/forum/?group_id=48413">Discussion Fora</a>
+</div>
+      
+<div>
+<a href="http://sourceforge.net/tracker/?group_id=48413&atid=452990">Support Requests</a>
+</div>
+      
+<div>
+<a href="../mailing_lists.html">Mailing Lists</a>
+</div>
+      
+<div>
+<a href="http://sourceforge.net/tracker/?group_id=48413&atid=452989">Bug Reporting &amp; Tracking</a>
+</div>
+      
+<div>
+<a href="http://sourceforge.net/tracker/?group_id=48413&atid=452992">Feature Request</a>
+</div>
+    
+</div>
+<div>
+<a href="../kbase/">Knowledge Base</a>
+	  
+<div>
+<a href="../kbase/index.html">Index</a>
+</div>
+	  
+<div>
+<a href="../kbase/protocol.html">Understanding the Protocol</a>
+</div>
+	  
+<div>
+<a href="../kbase/modbus_udp.html">Modbus/UDP</a>
+</div>
+    
+<div>
+<a href="../kbase/modbus_bin.html">Modbus/BIN</a>
+</div>
+	
+</div>
+<div>
+<a href="../development/">Development</a>
+	  
+<div>
+<a href="../development/index.html">Overview</a>
+</div>
+      
+<div>
+<a href="../development/project_guidelines.html">Project Guidelines</a>
+</div>      
+      
+<div>
+<a href="../development/project_build.html">Build Notes</a>
+</div>
+      
+<div>
+<a href="">CVS Repository</a>
+        
+<div>
+<a href="http://sourceforge.net/cvs/?group_id=48413">access information</a>
+</div>
+        
+<div>
+<a href="http://cvs.sourceforge.net/cgi-bin/viewcvs.cgi/jamod">online browsing</a>
+</div>
+      
+</div>
+	  
+<div>
+<a href="">HOW-TO's</a>
+	    
+<div>
+<a href="../development/serial_master_howto.html">Serial Master</a>
+</div>
+		
+<div>
+<a href="../development/tcp_master_howto.html">TCP Master</a>
+</div>
+		
+<div>
+<a href="../development/udp_master_howto.html">UDP Master</a>
+</div>
+	    
+<div>
+<a href="../development/processimage.html">Process Image</a>
+</div>
+		
+<div>
+<a href="../development/serial_slave_howto.html">Serial Slave</a>
+</div>
+		
+<div>
+<a href="../development/tcp_slave_howto.html">TCP Slave</a>
+</div>
+		
+<div>
+<a href="../development/udp_slave_howto.html">UDP Slave</a>
+</div>
+	  
+</div>
+	  
+<div>
+<a href="../api/index.html">API Documentation</a>
+</div>
+    
+</div>
+<div>
+<a href="">Credits</a>
+      
+<div>
+<a href="../project_credits.html">Project Credits</a>
+</div>
+      
+<div>
+<a href="../project_legalnotices.html">Legal Notices</a>
+</div>
+    
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="strut">&nbsp;</div>
+</td><td>
+<div class="content">
+<div align="right" id="topmodule">
+<table width="100%" cellpadding="3" cellspacing="0" border="0">
+<tr>
+<td class="tasknav"><a href="http://www.sourceforge.net">SF</a> &gt; <a href="http://www.sourceforge.net/projects/jamod">jamod</a><script src="../skin/breadcrumbs.js" language="JavaScript" type="text/javascript"></script></td><td class="tasknav" id="issueid">
+<div align="right">
+<div id="skinconf-txtlink"></div>
+<div title="Portable Document Format" class="pdflink">
+<a class="dida" href="modbus_bin.pdf"><img alt="PDF -icon" src="../skin/images/pdfdoc.gif" class="skin"><br>
+        PDF</a>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="bodycol">
+<div id="apphead">
+<h2>
+<em>Modbus BIN Specification</em>
+</h2>
+</div>
+<div class="app" id="projecthome">
+<ul class="minitoc">
+<li>
+<a href="#About">About</a>
+</li>
+<li>
+<a href="#Protocol+%26+Specification">Protocol &amp; Specification</a>
+</li>
+<li>
+<a href="#framing">Modbus/BIN Frames</a>
+</li>
+<li>
+<a href="#escaping">Modbus/BIN byte transport rule</a>
+</li>
+</ul>
+    
+<a name="N10016"></a><a name="About"></a>
+<div class="h3">
+<h3>About</h3>
+      
+	  
+<p>
+	    This document introduces a Modbus/BIN (serial) flavor which we have developed to
+      overcome the problems of the RTU frames that are purely based on timings.
+    </p>
+	  
+<p>
+	    We succeeded with a relatively simple design and implementation
+	    and are convinced that a Modbus/BIN flavor is an interesting
+	    approach for reducing the traffic overhead, achieving higher throughput performance
+      than with the ASCII flavor but without the drawbacks of the RTU flavor.
+	  </p>
+    
+</div>
+    
+<a name="N10023"></a><a name="Protocol+%26+Specification"></a>
+<div class="h3">
+<h3>Protocol &amp; Specification</h3>
+      
+	  
+<p>
+	    Basically the protocol specification for the RTU flavor is valid, except
+      for the following two major differences:
+	  </p>
+    
+<ol>
+      
+<li>Message frames have start and end tokens.</li>
+      
+<li>Start and end token bytes are duplicated if they occur within a message.</li>
+    
+</ol>
+	  
+<p>
+	    Both of these differences will be discussed in more detail in the following.
+	  </p>
+	  
+</div>
+	  
+<a name="N10039"></a><a name="framing"></a>
+<div class="h3">
+<h3>Modbus/BIN Frames</h3>
+	    
+		  
+<p>
+        Frames are transmitted binary to achieve a higher density. The error checksum
+        is represented by a cyclic redundancy check (16 bit CRC; 2 byte) and appended
+        to the message in the RTU order (low byte first). A message frame starts with
+        a left/opening brace (<span class="codefrag">{</span>, ASCII Code: 123, hex 0x7B) and ends with
+        a right/closing brace (<span class="codefrag">}</span>, ASCII Code: 125, 0x7D).
+        Pauses between bytes can occur.
+		</p>
+		
+<p>
+		  
+<em>Wait, the message might contain bytes with these values!</em>
+<br>
+		  Right. That's why we have additionally established a rule for writing message bytes.
+      Please see the next section.
+		</p>
+   
+</div>
+    
+<a name="N10050"></a><a name="escaping"></a>
+<div class="h3">
+<h3>Modbus/BIN byte transport rule</h3>
+      
+      
+<p>
+        Due to the fact that message bytes might have the value of the frame start
+        and end tokens, we establish a very simple rule for transferring message
+        bytes over a transport medium:<br>
+        
+<strong>If a byte with the value 123 (0x7B) or with the value 125 (0x7D) occurs
+        it has to be duplicated (i.e. written twice).</strong>.
+      </p>
+      
+<p>
+         This allows to distinguish between frame marker tokens and
+         byte values when reading them from a transport medium, without much effort.
+      </p>
+      
+<p>
+		    
+<em>Wait, this means you might as well end up with the length of messages in ASCII flavor!</em>
+<br>
+        This is basically right, but very unlikely the case. We are convinced that we
+        have probability on our side. If you consider that each byte value has the same
+        probability you can calculate the density distribution for a specific message length
+        and statistically speaking, the mean length will be below the length of the ASCII flavor
+        message.
+		  </p>
+      
+<p>
+		    
+<em>Wait, I don't believe the statistical crap!</em>
+<br>
+		    
+<strong>Creationist, uh?</strong> Well, probably we convince you with these:
+		  </p>
+      
+<ol>
+        
+<li>
+          You don't need to worry about exact timing that much any longer. This is great
+          at least if you don't have to cope with a strict hard real time world.
+        </li>
+        
+<li>
+          You won't loose time or resources to encode bytes, neither when writing them (you just
+          write the same byte once more) nor when reading them (you just check for the duplicates
+          and skip them).
+        </li>
+      
+</ol>
+      
+<p>
+		  
+<em>I want to try this!</em>
+<br>
+		  Right. That's why we have implemented it. All you need to do is to set the encoding parameter
+      for the serial examples to <span class="codefrag">bin</span>. jamod will do the rest for you.
+		  </p>
+		
+<ul>
+		  
+<li>
+		    Modbus Serial Slave: <a href="../development/serial_slave_howto.html">Serial Slave How-To</a>
+	      
+</li>
+		  
+<li>
+		    Modbus Serial Master: <a href="../development/serial_master_howto.html">Serial Master How-To</a>
+	      
+</li>
+		
+</ul>
+		
+<p>
+		  You are also more then welcome to check out the source code.
+		</p>
+    
+</div>
+
+  
+<p align="right">
+<font size="-2">by&nbsp;Dieter Wimberger</font>
+</p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<div id="footer">
+<table cellpadding="4" cellspacing="0" border="0">
+<tr>
+<td><a href="http://www.sourceforge.net"><img class="logoImage" alt="" src="http://sourceforge.net/sflogo.php?group_id=48413"></a></td><td>
+          Copyright &copy; 2000-2004&nbsp;
+          jamod development team.
+      All rights reserved.
+            <br>
+<script type="text/javascript" language="JavaScript"><!--
+              document.write(" - "+"Last Published: " + document.lastModified);
+              //  --></script></td><td nowrap="nowrap" align="right"></td>
+</tr>
+</table>
+</div>
+</body>
+</html>
