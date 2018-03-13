@@ -27,5 +27,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support.constraint:constraint-layout:+'
-    implementation project(':jamod')
+    implementation files('libs/jamod-1.2rc1/jamod.jar')
 }

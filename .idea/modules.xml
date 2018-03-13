@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Detector.iml" filepath="$PROJECT_DIR$/Detector.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jamod/jamod.iml" filepath="$PROJECT_DIR$/jamod/jamod.iml" />
     </modules>
   </component>
 </project>

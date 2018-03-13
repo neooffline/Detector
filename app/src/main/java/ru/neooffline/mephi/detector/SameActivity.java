@@ -2,71 +2,54 @@ package ru.neooffline.mephi.detector;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Service;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
-
-import java.io.File;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.DuplicateFormatFlagsException;
 import java.util.Random;
+import android.os.Binder;
+import android.os.IBinder;
+import android.widget.TextView;
 
 /**
  * Created by user on 02.03.2018.
  */
-public class SameActivity extends AppCompatActivity {
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_same_page);
+public class SameActivity extends Service {
+    private final IBinder mBinder = new LocalBinder();
+
+    public class LocalBinder extends Binder {
+        SameActivity getService() {
+            return SameActivity.this;
+        }
     }
-    public void backToMain (View view){
+
+    private TextView tv,tv1,tv2;
+
+
+    public int onStartCommand(Intent intent, int flag, int startId) {
+        return START_STICKY;
+    }
+
+    public IBinder onBind(Intent intent) {
+        return mBinder;
+    }
+
+    public void backToMain(View view) {
         Intent backToMain = new Intent(this, MainActivity.class);
         startActivity(backToMain);
 
     }
-    public void writeDataToFile (String data, Context context){
+
+    public void writeDataToFile(String data, Context context) {
         try {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("data.txt", Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
+        } catch (IOException e) {
+            Log.e("Exeprion", "File write failed: " + e.toString());
         }
-        catch (IOException e){
-            Log.e("Exeprion", "File write failed: "+e.toString());
-        }
-    }
-    public static double getVoltageValue(){
-        double[] sensoreVoltageArray = new double[10];
-        for (int i = 1; i < 10; i++) {
-            Random random = new Random();
-            Double randNumber = random.nextDouble() * 15;
-            sensoreVoltageArray[i] = (double) Math.round(randNumber * 100d)/100d;
-        }
-        for (int i = 1; i <10; i++) {
-            return sensoreVoltageArray[i];
-            }
-        return 0;
-    }
-    public static double getCapacityValue(){
-        double[] sensoreCapacityArray = new double[10];
-        for (int i = 1; i < 10; i++){
-            Random random = new Random();
-            Double randNumber = random.nextDouble() *5;
-            sensoreCapacityArray[i] = (double) Math.round(randNumber * 1000d)/1000d;
-        }
-        for (int i = 1; i <10; i++){
-            return sensoreCapacityArray[i];
-        }
-        return 0;
-    }
-    public static double getTemperatureValue(){
-        Double sensoreTempereture = 300.0;
-        return sensoreTempereture;
     }
 }
 
