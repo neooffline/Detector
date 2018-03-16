@@ -135,7 +135,7 @@
         android:layout_height="47dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="24dp"
-        android:onClick="testClick"
+        android:onClick="calc"
         android:text="@string/startButton"
         app:layout_constraintBottom_toTopOf="@+id/startButton"
         app:layout_constraintStart_toStartOf="parent" />

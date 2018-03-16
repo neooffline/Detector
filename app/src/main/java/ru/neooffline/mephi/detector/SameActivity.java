@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.app.Service;
 import android.os.AsyncTask;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import java.io.IOException;
@@ -16,30 +18,11 @@ import android.widget.TextView;
 /**
  * Created by user on 02.03.2018.
  */
-public class SameActivity extends Service {
-    private final IBinder mBinder = new LocalBinder();
-
-    public class LocalBinder extends Binder {
-        SameActivity getService() {
-            return SameActivity.this;
-        }
-    }
-
-    private TextView tv,tv1,tv2;
-
-
-    public int onStartCommand(Intent intent, int flag, int startId) {
-        return START_STICKY;
-    }
-
-    public IBinder onBind(Intent intent) {
-        return mBinder;
-    }
+public class SameActivity extends AppCompatActivity {
 
     public void backToMain(View view) {
         Intent backToMain = new Intent(this, MainActivity.class);
         startActivity(backToMain);
-
     }
 
     public void writeDataToFile(String data, Context context) {
