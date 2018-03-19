@@ -2,20 +2,17 @@ package ru.neooffline.mephi.detector;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import net.wimpi.modbus.io.ModbusSerialTransaction;
-import net.wimpi.modbus.msg.ReadInputRegistersRequest;
-import net.wimpi.modbus.msg.ReadInputRegistersResponse;
-import net.wimpi.modbus.net.ModbusSerialListener;
 import net.wimpi.modbus.net.SerialConnection;
-import net.wimpi.modbus.procimg.SimpleDigitalOut;
-import net.wimpi.modbus.procimg.SimpleProcessImage;
+import net.wimpi.modbus.util.SerialParameters;
 
 import java.util.Random;
+
+import jssc.SerialPort;
+import jssc.SerialPortList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,13 +26,23 @@ public class MainActivity extends AppCompatActivity {
         Intent toSettings = new Intent(this, SettingsActivity.class);
         startActivity(toSettings);
     }
+
     public void callAboutActivity(View view) {
         Intent toAbout = new Intent(this, AboutActivity.class);
         startActivity(toAbout);
     }
+//   SimpleMater port = new SimpleMater();
+    try {
+    SerialParameters serialParameters = new SerialParameters();
+    String[] devList = SerialPortList.getPortNames();
+    if(devList.length >0) {
+        serialParameters.getPortName(devList[0]);
+        serialParameters.setBaudRate(38400);
+    }
 
+}
     public void calc (View view){
-        double sensorTemperature = 300.0;
+        int sensorTemperature = 12424;
         Random random = new Random();
         Random random1 = new Random();
         Double randNumber = random.nextDouble() * 15;
