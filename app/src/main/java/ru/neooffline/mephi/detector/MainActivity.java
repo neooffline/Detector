@@ -5,14 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-
-import net.wimpi.modbus.net.SerialConnection;
-import net.wimpi.modbus.util.SerialParameters;
-
 import java.util.Random;
 
+import gnu.io.*;
+import gnu.io.CommPortIdentifier;
+import jssc.*;
 import jssc.SerialPort;
-import jssc.SerialPortList;
+import purejavacomm.*;
+
+import static gnu.io.CommPortIdentifier.*;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,18 +33,19 @@ public class MainActivity extends AppCompatActivity {
         Intent toAbout = new Intent(this, AboutActivity.class);
         startActivity(toAbout);
     }
-//   SimpleMater port = new SimpleMater();
-    try {
-    SerialParameters serialParameters = new SerialParameters();
-    String[] devList = SerialPortList.getPortNames();
-    if(devList.length >0) {
-        serialParameters.getPortName(devList[0]);
-        serialParameters.setBaudRate(38400);
-    }
+    SerialPort serialPort = new SerialPort(PORT_SERIAL);
 
-}
+
+//    serialPortFinder.getAllDevices();
+    //SerialPort port = new SerialPort(serialModel.getSerialPort()); if (port != null && !port.isOpened()) { try { port.openPort(); } catch (SerialPortException e) { e.printStackTrace(); } }
+    //        SerialParameters sp = new SerialParameters(spList[0], BAUD_RATE_38400,8,0,NONE);
+        //ModbusMaster modbusMaster = new ModbusMasterFactory().createModbusMasterRTU(sp);
+       // modbusMaster.connect();
+
+
+
     public void calc (View view){
-        int sensorTemperature = 12424;
+        String sensorTemperature = "lala";
         Random random = new Random();
         Random random1 = new Random();
         Double randNumber = random.nextDouble() * 15;
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textFill_cDat = (TextView) findViewById(R.id.cDat_var);
         TextView textFill_tDat = (TextView) findViewById(R.id.tDat_var);
         textFill_cDat.setText(String.valueOf(sensorCapacity));
-        textFill_tDat.setText(String.valueOf(sensorTemperature));
+        textFill_tDat.setText(sensorTemperature);
         textFill_uDat.setText(String.valueOf(sensorVoltage));
     }
 }

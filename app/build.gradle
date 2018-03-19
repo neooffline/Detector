@@ -23,10 +23,9 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.0.2'
+    compile 'com.android.support:appcompat-v7:26+'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support.constraint:constraint-layout:+'
-    implementation files('libs/jamod-1.2rc1/jamod.jar')
     implementation files('libs/jlibmodbus-1.2.9.3.jar')
     implementation files('libs/jssc-2.8.0.jar')
     implementation files('libs/RXTXcomm.jar')
