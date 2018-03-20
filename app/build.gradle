@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -26,8 +27,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26+'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support.constraint:constraint-layout:+'
-    implementation files('libs/jlibmodbus-1.2.9.3.jar')
-    implementation files('libs/jssc-2.8.0.jar')
-    implementation files('libs/RXTXcomm.jar')
-    implementation files('libs/purejavacomm.jar')
+    compile 'com.android.support:multidex:1.0.3'
+    implementation project(':usbSerialForAndroid')
 }

@@ -11,7 +11,7 @@ public class AboutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
     }
-    public void backToMain1 (View view){
+    public void backToMain (View view){
         Intent backToMain1 = new Intent(this, MainActivity.class);
         startActivity(backToMain1);
     }

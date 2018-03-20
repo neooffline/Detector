@@ -1,19 +1,23 @@
 package ru.neooffline.mephi.detector;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.usb.UsbDeviceConnection;
+import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import com.hoho.android.usbserial.driver.UsbSerialDriver;
+import com.hoho.android.usbserial.driver.UsbSerialPort;
+import com.hoho.android.usbserial.driver.UsbSerialProber;
+
+import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 
-import gnu.io.*;
-import gnu.io.CommPortIdentifier;
-import jssc.*;
-import jssc.SerialPort;
-import purejavacomm.*;
-
-import static gnu.io.CommPortIdentifier.*;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,15 +37,27 @@ public class MainActivity extends AppCompatActivity {
         Intent toAbout = new Intent(this, AboutActivity.class);
         startActivity(toAbout);
     }
-    SerialPort serialPort = new SerialPort(PORT_SERIAL);
-
-
-//    serialPortFinder.getAllDevices();
-    //SerialPort port = new SerialPort(serialModel.getSerialPort()); if (port != null && !port.isOpened()) { try { port.openPort(); } catch (SerialPortException e) { e.printStackTrace(); } }
-    //        SerialParameters sp = new SerialParameters(spList[0], BAUD_RATE_38400,8,0,NONE);
-        //ModbusMaster modbusMaster = new ModbusMasterFactory().createModbusMasterRTU(sp);
-       // modbusMaster.connect();
-
+    UsbManager usbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
+    List<UsbSerialDriver> availableDrivers = UsbSerialProber.getDefaultProber().findAllDrivers(usbManager);
+    if (this.availableDrivers){
+/* return; */
+    }
+    UsbSerialDriver usbSerialDriver = availableDrivers.get(0);
+    UsbDeviceConnection connection = usbManager.openDevice(usbSerialDriver.getDevice());
+    if (connection == null){
+        return;
+    }
+    UsbSerialPort usbSerialPort = usbSerialDriver.getPorts().get(0);
+    try {
+        usbSerialPort.open(connection);
+        usbSerialPort.setParameters(34800,8,2,UsbSerialPort.PARITY_NONE);
+        byte buffer[] = new byte[16];
+        int numBytesRead = usbSerialPort.read(buffer,1000);
+        Log.d(TAG, "Read " + numBytesRead + "bytes.");
+        } catch (IOException e) {
+        } finally {
+        usbSerialPort.close();
+    }
 
 
     public void calc (View view){
