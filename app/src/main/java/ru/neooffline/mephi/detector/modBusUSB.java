@@ -92,7 +92,7 @@ public class modBusUSB {
                 return false;
             } else {
                 mActivePort.open(mActiveConnection);
-                mActivePort.setParameters(115200, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
+                mActivePort.setParameters(34800, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
                 isConnected = true;
                 return true;
             }

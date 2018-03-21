@@ -27,6 +27,10 @@
         <activity android:name=".SettingsActivity"
                   android:label="SamePage">
         </activity>
+        <!--<activity android:name=".modBusUSB"-->
+                    <!--android:label="modbus">-->
+
+        <!--</activity>-->
     </application>
 
 </manifest>

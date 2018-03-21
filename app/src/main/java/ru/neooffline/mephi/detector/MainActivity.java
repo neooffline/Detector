@@ -1,5 +1,6 @@
 package ru.neooffline.mephi.detector;
 
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.usb.UsbDeviceConnection;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
+import static ru.neooffline.mephi.detector.modBusUSB.*;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -37,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
         Intent toAbout = new Intent(this, AboutActivity.class);
         startActivity(toAbout);
     }
-    UsbManager usbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
+    /*UsbManager usbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
     List<UsbSerialDriver> availableDrivers = UsbSerialProber.getDefaultProber().findAllDrivers(usbManager);
     if (this.availableDrivers){
-/* return; */
+/* return;
     }
     UsbSerialDriver usbSerialDriver = availableDrivers.get(0);
     UsbDeviceConnection connection = usbManager.openDevice(usbSerialDriver.getDevice());
@@ -57,8 +59,18 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
         } finally {
         usbSerialPort.close();
-    }
+    }*/
 
+    public int clack (View view){
+
+        modBusUSB.SetSerialParams(34800,8,2,UsbSerialPort.PARITY_NONE);
+        modBusUSB.Connect();
+        modBusUSB.ReadHoldingRegisters(1,1,1);
+
+        int cc = 14444444;
+        return cc;
+    }
+    
 
     public void calc (View view){
         String sensorTemperature = "lala";
