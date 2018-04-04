@@ -8,6 +8,10 @@
         android:minSdkVersion="19"
         android:targetSdkVersion="26" />
 
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="26.0.0-alpha1" />
+
     <application
         android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
@@ -42,14 +46,11 @@
             android:name="ru.neooffline.mephi.detector.SettingsActivity"
             android:label="SamePage" >
         </activity>
+        <!-- <activity android:name=".modBusUSB" -->
+        <!-- android:label="modbus"> -->
 
-        <meta-data
-            android:name="android.support.VERSION"
-            android:value="26.1.0" />
-        <meta-data
-            android:name="android.arch.lifecycle.VERSION"
-            android:value="27.0.0-SNAPSHOT" />
 
+        <!-- </activity> -->
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"
             android:authorities="ru.neooffline.mephi.detector.com.android.tools.ir.server.InstantRunContentProvider"

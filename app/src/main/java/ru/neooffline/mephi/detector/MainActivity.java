@@ -1,25 +1,16 @@
 package ru.neooffline.mephi.detector;
 
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.hardware.usb.UsbDeviceConnection;
-import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.hoho.android.usbserial.driver.UsbSerialDriver;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
-import com.hoho.android.usbserial.driver.UsbSerialProber;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Random;
-
-import static ru.neooffline.mephi.detector.modBusUSB.*;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -61,30 +52,41 @@ public class MainActivity extends AppCompatActivity {
         usbSerialPort.close();
     }*/
 
-    public int clack (View view){
+    public boolean clack (View view) throws IOException {
 
-        modBusUSB.SetSerialParams(34800,8,2,UsbSerialPort.PARITY_NONE);
-        modBusUSB.Connect();
-        modBusUSB.ReadHoldingRegisters(1,1,1);
-
-        int cc = 14444444;
-        return cc;
+        ModBusUSB modBusUSB1 = new ModBusUSB(this);
+        modBusUSB1.SetSerialParams(34800,8,2,UsbSerialPort.PARITY_NONE);
+        modBusUSB1.Connect();
+        modBusUSB1.ReadHoldingRegisters(1,1,1);
+        boolean connect = modBusUSB1.Connected();
+        return connect;
     }
-    
 
-    public void calc (View view){
-        String sensorTemperature = "lala";
-        Random random = new Random();
-        Random random1 = new Random();
-        Double randNumber = random.nextDouble() * 15;
-        Double randNumber1 = random1.nextDouble() * 5;
-        double sensorVoltage = (double) Math.round(randNumber * 100d) / 100d;
-        double sensorCapacity = (double) Math.round(randNumber1 * 1000d) / 1000d;
+    public void calc (View view) throws IOException {
+        ModBusUSB modBusUSB2 = new ModBusUSB(this);
+        modBusUSB2.SetSerialParams(34800,8,2,UsbSerialPort.PARITY_NONE);
+        modBusUSB2.Connect();
+        modBusUSB2.ReadHoldingRegisters(1,1,1);
+        boolean connect = !modBusUSB2.Connected();
+        Detector detector = new Detector();
+        detector.setDetCapacity((float) 12.00);
+        detector.setDetTemperature((float) 122);
+        detector.setDetVoltage((float) 24);
+//        String sensorTemperature = "lala";
+//        Random random = new Random();
+//        Random random1 = new Random();
+//        Double randNumber = random.nextDouble() * 15;
+//        Double randNumber1 = random1.nextDouble() * 5;
+//        double sensorVoltage = (double) Math.round(randNumber * 100d) / 100d;
+//        double sensorCapacity = (double) Math.round(randNumber1 * 1000d) / 1000d;
         TextView textFill_uDat = (TextView) findViewById(R.id.uDat_var);
         TextView textFill_cDat = (TextView) findViewById(R.id.cDat_var);
         TextView textFill_tDat = (TextView) findViewById(R.id.tDat_var);
-        textFill_cDat.setText(String.valueOf(sensorCapacity));
-        textFill_tDat.setText(sensorTemperature);
-        textFill_uDat.setText(String.valueOf(sensorVoltage));
+        RadioButton textFill_Connected = (RadioButton) findViewById(R.id.radio1);
+        textFill_cDat.setText(String.valueOf(detector.getDetCapacity()));
+        textFill_tDat.setText(String.valueOf(detector.getDetTemperature()));
+        textFill_uDat.setText(String.valueOf(detector.getDetVoltage()));
+        textFill_Connected.setChecked(connect);
+
     }
 }

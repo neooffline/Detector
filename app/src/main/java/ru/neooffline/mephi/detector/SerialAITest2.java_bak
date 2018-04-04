@@ -1,0 +1,79 @@
+package ru.neooffline.mephi.detector;
+
+import net.wimpi.modbus.ModbusCoupler;
+import net.wimpi.modbus.io.ModbusSerialTransaction;
+import net.wimpi.modbus.msg.ReadInputRegistersRequest;
+import net.wimpi.modbus.msg.ReadInputRegistersResponse;
+import net.wimpi.modbus.net.SerialConnection;
+import net.wimpi.modbus.util.SerialParameters;
+import java.util.EventListener;
+
+/**
+ * Created by user on 16.03.2018.
+ */
+
+public class SerialAITest2 {
+    public SerialAITest2(String[] args) throws Exception {
+        //SerialConnection connection = null;
+        ModbusSerialTransaction transaction = null;
+        ReadInputRegistersRequest registersRequest = null;
+        ReadInputRegistersResponse registersResponse = null;
+
+        String portname = null;
+        int unitId = 0;
+        int ref = 0;
+        int count = 0;
+        int repeat = 1;
+        if (args.length < 4) {
+            System.exit(1);
+        } else {
+            try {
+                portname = args[0];
+                unitId = Integer.parseInt(args[1]);
+                ref = Integer.parseInt(args[2]);
+                count = Integer.parseInt(args[3]);
+                if (args.length == 5) repeat = Integer.parseInt(args[4]);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                System.exit(1);
+            }
+        }
+//        ModbusCoupler modbusCoupler = new ModbusCoupler(null);
+        ModbusCoupler.getReference().setUnitID(1);
+        SerialParameters parameters = new SerialParameters();
+        parameters.setPortName(portname);
+        parameters.setBaudRate(34800);
+        parameters.setDatabits(8);
+        parameters.setParity("None");
+        parameters.setStopbits(2);
+        parameters.setEncoding("ascii");
+        parameters.setEcho(false);
+        SerialConnection connection = new SerialConnection(parameters);
+        connection.open();
+        registersRequest = new ReadInputRegistersRequest(ref, count);
+        registersRequest.setUnitID(unitId);
+        registersRequest.setHeadless();
+        transaction = new ModbusSerialTransaction(connection);
+        transaction.setRequest(registersRequest);
+        class Cell {
+            int x;
+            int y;
+        }
+        Cell[][] cells;
+        cells = new Cell[repeat][registersResponse.getWordCount()];
+        int k = 0;
+        do {
+            Cell[] collumn;
+            collumn = cells[k];
+            transaction.execute();
+            registersResponse = (ReadInputRegistersResponse) transaction.getResponse();
+            for (int i = 0; i < registersResponse.getWordCount(); i++) {
+                cells[k][i] = new Cell();
+                cells[k][i].x = registersResponse.getRegisterValue(i);
+            }
+            k++;
+        } while (k < repeat);
+
+        connection.close();
+    }
+}

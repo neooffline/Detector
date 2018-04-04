@@ -17,7 +17,8 @@
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="24dp"
-        android:checked="false"
+        android:checked="true"
+        android:onClick="clack"
         android:text="@string/startButton"
         android:textOff="@string/startButton"
         android:textOn="@string/stopButton"
@@ -125,6 +126,12 @@
                 android:gravity="left"
                 android:text="@string/tempDime"
                 android:textSize="22sp" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RadioButton" />
         </TableRow>
 
     </TableLayout>
