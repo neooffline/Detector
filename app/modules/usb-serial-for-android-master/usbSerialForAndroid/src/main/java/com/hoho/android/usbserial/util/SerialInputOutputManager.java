@@ -66,13 +66,13 @@ public class SerialInputOutputManager implements Runnable {
         /**
          * Called when new incoming data is available.
          */
-        void onNewData(byte[] data);
+        public void onNewData(byte[] data);
 
         /**
          * Called when {@link SerialInputOutputManager#run()} aborts due to an
          * error.
          */
-        void onRunError(Exception e);
+        public void onRunError(Exception e);
     }
 
     /**

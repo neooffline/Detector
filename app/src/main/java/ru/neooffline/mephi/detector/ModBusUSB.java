@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class modBusUSB {
+public class ModBusUSB {
 
     private byte[] readBuffer = new byte[255];
     private UsbSerialPort mActivePort;
@@ -68,7 +68,7 @@ public class modBusUSB {
 
 
 
-    public modBusUSB(Context context) {
+    public ModBusUSB(Context context) {
         // get USBManager object
 
         mUsbManager = (UsbManager) context.getSystemService(Context.USB_SERVICE);

@@ -36,7 +36,7 @@ public interface UsbSerialDriver {
      *
      * @return the device
      */
-    UsbDevice getDevice();
+    public UsbDevice getDevice();
 
     /**
      * Returns all available ports for this device. This list must have at least
@@ -44,5 +44,5 @@ public interface UsbSerialDriver {
      *
      * @return the ports
      */
-    List<UsbSerialPort> getPorts();
+    public List<UsbSerialPort> getPorts();
 }
