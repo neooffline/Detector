@@ -9,7 +9,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.hoho.android.usbserial.driver.UsbSerialPort;
-
 import java.io.IOException;
 
 
@@ -63,15 +62,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calc (View view) throws IOException {
-        ModBusUSB modBusUSB2 = new ModBusUSB(this);
-        modBusUSB2.SetSerialParams(34800,8,2,UsbSerialPort.PARITY_NONE);
-        modBusUSB2.Connect();
-        modBusUSB2.ReadHoldingRegisters(1,1,1);
-        boolean connect = !modBusUSB2.Connected();
+//        ModBusUSB modBusUSB2 = new ModBusUSB(this);
+//        modBusUSB2.SetSerialParams(34800,8,2,UsbSerialPort.PARITY_NONE);
+//        modBusUSB2.Connect();
+//        modBusUSB2.ReadHoldingRegisters(1,1,1);
+//        boolean connect = !modBusUSB2.Connected();
+        boolean connect = true;
         Detector detector = new Detector();
         detector.setDetCapacity((float) 12.00);
         detector.setDetTemperature((float) 122);
         detector.setDetVoltage((float) 24);
+        detector.setDetNumber(12);
+        detector.setDetDate(2018,3,15,15,15);
+
 //        String sensorTemperature = "lala";
 //        Random random = new Random();
 //        Random random1 = new Random();
@@ -79,10 +82,14 @@ public class MainActivity extends AppCompatActivity {
 //        Double randNumber1 = random1.nextDouble() * 5;
 //        double sensorVoltage = (double) Math.round(randNumber * 100d) / 100d;
 //        double sensorCapacity = (double) Math.round(randNumber1 * 1000d) / 1000d;
-        TextView textFill_uDat = (TextView) findViewById(R.id.uDat_var);
-        TextView textFill_cDat = (TextView) findViewById(R.id.cDat_var);
-        TextView textFill_tDat = (TextView) findViewById(R.id.tDat_var);
-        RadioButton textFill_Connected = (RadioButton) findViewById(R.id.radio1);
+        TextView textFill_uDat = findViewById(R.id.uDat_var);
+        TextView textFill_cDat = findViewById(R.id.cDat_var);
+        TextView textFill_tDat = findViewById(R.id.tDat_var);
+        TextView textFil_numDat =  findViewById(R.id.numDat_var);
+        TextView textFill_dateDat = findViewById(R.id.dateDat_var);
+        RadioButton textFill_Connected = findViewById(R.id.radio1);
+        textFil_numDat.setText(String.valueOf(detector.getDetNumber()));
+        textFill_dateDat.setText((CharSequence) detector.getDetDate());
         textFill_cDat.setText(String.valueOf(detector.getDetCapacity()));
         textFill_tDat.setText(String.valueOf(detector.getDetTemperature()));
         textFill_uDat.setText(String.valueOf(detector.getDetVoltage()));

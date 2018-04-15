@@ -1,5 +1,6 @@
 package ru.neooffline.mephi.detector;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -10,7 +11,7 @@ public class Detector {
     float detTemperature;
     float detCapacity;
     float detVoltage;
-    Date detDate;
+    Calendar detDate;
     int detNumber;
 
     public void setDetTemperature(float temp){
@@ -22,6 +23,54 @@ public class Detector {
     public void setDetVoltage(float voltage){
         this.detVoltage = voltage;
     }
+    public void setDetNumber(int number){
+        this.detNumber = number;
+    }
+    public void setDetDate(int year, int month, int day, int hour, int minute){
+        Calendar date = new Calendar() {
+            @Override
+            protected void computeTime() {
+
+            }
+
+            @Override
+            protected void computeFields() {
+
+            }
+
+            @Override
+            public void add(int field, int amount) {
+
+            }
+
+            @Override
+            public void roll(int field, boolean up) {
+
+            }
+
+            @Override
+            public int getMinimum(int field) {
+                return 0;
+            }
+
+            @Override
+            public int getMaximum(int field) {
+                return 0;
+            }
+
+            @Override
+            public int getGreatestMinimum(int field) {
+                return 0;
+            }
+
+            @Override
+            public int getLeastMaximum(int field) {
+                return 0;
+            }
+        };
+        date.set(year,month,day,hour,minute);
+        this.detDate = date;
+    }
     float getDetTemperature(){
         return detTemperature;
     }
@@ -31,7 +80,7 @@ public class Detector {
     float getDetVoltage(){
         return detVoltage;
     }
-    Date getDetDate(){
+    Calendar getDetDate(){
         return detDate;
     }
     int getDetNumber(){
