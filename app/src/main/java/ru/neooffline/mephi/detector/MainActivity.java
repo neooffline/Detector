@@ -1,7 +1,7 @@
 package ru.neooffline.mephi.detector;
 
-import android.content.Context;
 import android.content.Intent;
+import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,6 +14,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    private UsbManager mUsbManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,19 +42,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calc (View view) throws IOException {
+
         ModBusUSB modBusUSB2 = new ModBusUSB(this);
-        modBusUSB2.SetSerialParams(34800,8,2,UsbSerialPort.PARITY_NONE);
-        modBusUSB2.ReadHoldingRegisters(1,1,1);
-        byte[] ss = modBusUSB2.ActiveUSBConnection().getSerial().getBytes();
+        modBusUSB2.SetSerialParams(38400,8,2,UsbSerialPort.PARITY_NONE);
+        modBusUSB2.Connect();
         boolean connect = modBusUSB2.Connected();
 //        boolean connect = true;
         //int sd = modBusUSB2.ActivePort().getSerial().getBytes().length;
+        modBusUSB2.ReadHoldingRegisters(1,1,1);
+        modBusUSB2.Connected().
         int sd = 124;
         Detector detector = new Detector();
         detector.setDetCapacity((float) 12.00);
         detector.setDetTemperature((float) 122);
         detector.setDetVoltage((float) 24);
-        detector.setDetNumber(ss[5]);
+        detector.setDetNumber(sd);
         detector.setDetDate(2018,3,15,15,15);
 
 //        String sensorTemperature = "lala";
