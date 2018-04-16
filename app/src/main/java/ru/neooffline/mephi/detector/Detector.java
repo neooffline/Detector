@@ -27,47 +27,7 @@ public class Detector {
         this.detNumber = number;
     }
     public void setDetDate(int year, int month, int day, int hour, int minute){
-        Calendar date = new Calendar() {
-            @Override
-            protected void computeTime() {
-
-            }
-
-            @Override
-            protected void computeFields() {
-
-            }
-
-            @Override
-            public void add(int field, int amount) {
-
-            }
-
-            @Override
-            public void roll(int field, boolean up) {
-
-            }
-
-            @Override
-            public int getMinimum(int field) {
-                return 0;
-            }
-
-            @Override
-            public int getMaximum(int field) {
-                return 0;
-            }
-
-            @Override
-            public int getGreatestMinimum(int field) {
-                return 0;
-            }
-
-            @Override
-            public int getLeastMaximum(int field) {
-                return 0;
-            }
-        };
+        final Calendar date = Calendar.getInstance();
         date.set(year,month,day,hour,minute);
         this.detDate = date;
     }
@@ -80,8 +40,16 @@ public class Detector {
     float getDetVoltage(){
         return detVoltage;
     }
-    Calendar getDetDate(){
-        return detDate;
+    StringBuilder getDetDate(){
+//        final Calendar calendar = Calendar.getInstance();
+        int year = detDate.get(Calendar.YEAR);
+        int month = detDate.get(Calendar.MONTH);
+        int day = detDate.get(Calendar.DAY_OF_MONTH);
+        int hour = detDate.get(Calendar.HOUR);
+        int minute = detDate.get(Calendar.MINUTE);
+        StringBuilder str = new StringBuilder().append(day).append("-").append(month).append("-").append(year)
+                .append("  ").append(hour).append(":").append(minute);
+      return str;
     }
     int getDetNumber(){
         return detNumber;

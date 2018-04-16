@@ -29,27 +29,6 @@ public class MainActivity extends AppCompatActivity {
         Intent toAbout = new Intent(this, AboutActivity.class);
         startActivity(toAbout);
     }
-    /*UsbManager usbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
-    List<UsbSerialDriver> availableDrivers = UsbSerialProber.getDefaultProber().findAllDrivers(usbManager);
-    if (this.availableDrivers){
-/* return;
-    }
-    UsbSerialDriver usbSerialDriver = availableDrivers.get(0);
-    UsbDeviceConnection connection = usbManager.openDevice(usbSerialDriver.getDevice());
-    if (connection == null){
-        return;
-    }
-    UsbSerialPort usbSerialPort = usbSerialDriver.getPorts().get(0);
-    try {
-        usbSerialPort.open(connection);
-        usbSerialPort.setParameters(34800,8,2,UsbSerialPort.PARITY_NONE);
-        byte buffer[] = new byte[16];
-        int numBytesRead = usbSerialPort.read(buffer,1000);
-        Log.d(TAG, "Read " + numBytesRead + "bytes.");
-        } catch (IOException e) {
-        } finally {
-        usbSerialPort.close();
-    }*/
 
     public boolean clack (View view) throws IOException {
 
@@ -62,17 +41,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calc (View view) throws IOException {
-//        ModBusUSB modBusUSB2 = new ModBusUSB(this);
-//        modBusUSB2.SetSerialParams(34800,8,2,UsbSerialPort.PARITY_NONE);
-//        modBusUSB2.Connect();
-//        modBusUSB2.ReadHoldingRegisters(1,1,1);
-//        boolean connect = !modBusUSB2.Connected();
-        boolean connect = true;
+        ModBusUSB modBusUSB2 = new ModBusUSB(this);
+        modBusUSB2.SetSerialParams(34800,8,2,UsbSerialPort.PARITY_NONE);
+        modBusUSB2.ReadHoldingRegisters(1,1,1);
+        byte[] ss = modBusUSB2.ActiveUSBConnection().getSerial().getBytes();
+        boolean connect = modBusUSB2.Connected();
+//        boolean connect = true;
+        //int sd = modBusUSB2.ActivePort().getSerial().getBytes().length;
+        int sd = 124;
         Detector detector = new Detector();
         detector.setDetCapacity((float) 12.00);
         detector.setDetTemperature((float) 122);
         detector.setDetVoltage((float) 24);
-        detector.setDetNumber(12);
+        detector.setDetNumber(ss[5]);
         detector.setDetDate(2018,3,15,15,15);
 
 //        String sensorTemperature = "lala";
@@ -89,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textFill_dateDat = findViewById(R.id.dateDat_var);
         RadioButton textFill_Connected = findViewById(R.id.radio1);
         textFil_numDat.setText(String.valueOf(detector.getDetNumber()));
-        textFill_dateDat.setText((CharSequence) detector.getDetDate());
+        textFill_dateDat.setText(detector.getDetDate());
         textFill_cDat.setText(String.valueOf(detector.getDetCapacity()));
         textFill_tDat.setText(String.valueOf(detector.getDetTemperature()));
         textFill_uDat.setText(String.valueOf(detector.getDetVoltage()));

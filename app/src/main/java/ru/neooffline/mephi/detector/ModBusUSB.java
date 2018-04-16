@@ -14,6 +14,7 @@ import java.util.List;
 
 public class ModBusUSB {
 
+    private final Context context;
     private byte[] readBuffer = new byte[255];
     private UsbSerialPort mActivePort;
     private UsbDeviceConnection mActiveConnection;
@@ -70,12 +71,14 @@ public class ModBusUSB {
 
     public ModBusUSB(Context context) {
         // get USBManager object
-
+        this.context = context;
         mUsbManager = (UsbManager) context.getSystemService(Context.USB_SERVICE);
 
         // enumerate USB Devices
         mUSBSerialPorts = new ArrayList<UsbSerialPort>();
         // if no connection has been set, selects 1st available USBSerialPort
+
+//        mActivePort = port;
         isConnected = false;
     }
 
