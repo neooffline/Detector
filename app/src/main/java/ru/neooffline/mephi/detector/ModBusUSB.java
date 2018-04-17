@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ModBusUSB {
 
-    private final Context context;
+//    private final Context context;
     private byte[] readBuffer = new byte[255];
     private UsbSerialPort mActivePort;
     private UsbDeviceConnection mActiveConnection;
@@ -48,8 +48,6 @@ public class ModBusUSB {
     public int ResponsesError = 0;
     public int ResponsesTimeout = 0;
 
-
-
 /*
 
     public modBusUSB(Context context, UsbSerialPort port) {
@@ -63,15 +61,9 @@ public class ModBusUSB {
         //refreshDeviceList();
     }
 */
-
-
-
-
-
-
     public ModBusUSB(Context context) {
         // get USBManager object
-        this.context = context;
+//        this.context = context;
         mUsbManager = (UsbManager) context.getSystemService(Context.USB_SERVICE);
 
         // enumerate USB Devices
