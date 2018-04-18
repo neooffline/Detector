@@ -15,6 +15,7 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     private UsbManager mUsbManager;
+    Intent mainIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     public void calc (View view) throws IOException {
 
         ModBusUSB modBusUSB2 = new ModBusUSB(this);
+        mUsbManager.requestPermission(mA);
         try {
             modBusUSB2.Connect();
         } catch (Exception e){

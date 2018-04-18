@@ -1,8 +1,11 @@
 package ru.neooffline.mephi.detector;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
+import android.os.Parcel;
 
 import com.hoho.android.usbserial.driver.UsbSerialDriver;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
@@ -19,6 +22,7 @@ public class ModBusUSB {
     private UsbSerialPort mActivePort;
     private UsbDeviceConnection mActiveConnection;
     private UsbManager mUsbManager;
+    private Intent mUsbIntent;
     private boolean isConnected;
     private List<UsbSerialPort> mUSBSerialPorts;
 
@@ -69,13 +73,13 @@ public class ModBusUSB {
         // enumerate USB Devices
         mUSBSerialPorts = new ArrayList<UsbSerialPort>();
         // if no connection has been set, selects 1st available USBSerialPort
-
 //        mActivePort = port;
         isConnected = false;
     }
 
     public synchronized boolean Connect() throws IOException {
         // checks if a USBSerialPort was found/set
+        mUsbManager.requestPermission();
         if ((mActivePort == null)|(mActiveConnection == null)) {
             refreshUSBSerialDevices(); // try to find Serial hardware
         }
@@ -86,8 +90,9 @@ public class ModBusUSB {
             if (mActiveConnection == null) {
                 return false;
             } else {
+                mUsbManager.requestPermission(mActivePort,mUsbIntent);
                 mActivePort.open(mActiveConnection);
-                mActivePort.setParameters(34800, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
+                mActivePort.setParameters(9600, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
                 isConnected = true;
                 return true;
             }
@@ -167,7 +172,7 @@ public class ModBusUSB {
         if (mActivePort != null) {
             mActiveDevice = mActivePort.getDriver().getDevice();
             if (mActiveDevice !=null) {
-                mActiveConnection = mUsbManager.openDevice(mActiveDevice);
+               mActiveConnection = mUsbManager.openDevice(mActiveDevice);
             }
         }
     }
