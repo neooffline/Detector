@@ -1,16 +1,12 @@
 package ru.neooffline.mephi.detector;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
-import android.os.Parcel;
-
 import com.hoho.android.usbserial.driver.UsbSerialDriver;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
 import com.hoho.android.usbserial.driver.UsbSerialProber;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,7 +75,6 @@ public class ModBusUSB {
 
     public synchronized boolean Connect() throws IOException {
         // checks if a USBSerialPort was found/set
-        mUsbManager.requestPermission();
         if ((mActivePort == null)|(mActiveConnection == null)) {
             refreshUSBSerialDevices(); // try to find Serial hardware
         }
@@ -90,7 +85,6 @@ public class ModBusUSB {
             if (mActiveConnection == null) {
                 return false;
             } else {
-                mUsbManager.requestPermission(mActivePort,mUsbIntent);
                 mActivePort.open(mActiveConnection);
                 mActivePort.setParameters(9600, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
                 isConnected = true;

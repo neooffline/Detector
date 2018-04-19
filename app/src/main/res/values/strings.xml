@@ -15,4 +15,5 @@
     <string name="settings_Detc_name">Название:</string>
     <string name="settings_Save_button">СОХРАНИТЬ</string>
     <string name="isConnected">подключено.</string>
+    <string name="refreshing">обновление</string>
 </resources>

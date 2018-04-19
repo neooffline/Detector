@@ -27,6 +27,14 @@
         <activity android:name=".SettingsActivity"
                   android:label="SamePage">
         </activity>
+        <activity android:name=".DeviceListActivity"
+                  android:label="SerialDeviceList">
+
+        </activity>
+        <activity android:name=".SerialConsoleActivity"
+                  android:label="SerialConsole">
+
+        </activity>
         <!--<activity android:name=".modBusUSB"-->
                     <!--android:label="modbus">-->
 
