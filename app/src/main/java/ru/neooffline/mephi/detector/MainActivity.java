@@ -36,16 +36,14 @@ public class MainActivity extends AppCompatActivity {
     public void calc (View view) throws IOException {
 
         ModBusUSB modBusUSB2 = new ModBusUSB(this);
-        modBusUSB2.Connect();
         modBusUSB2.SetSerialParams(9600,8,2,UsbSerialPort.PARITY_NONE);
         boolean isConnected = false;
+        modBusUSB2.Connect();
         modBusUSB2.ReadHoldingRegisters(17,0,1);
         isConnected = modBusUSB2.Connected();
-        int k = modBusUSB2.ReadRegPDU().length;
-//        void disconnect(View view) {
-//            modBusUSB2.Disconnect();
-//        }
-//        int k = 11;
+        int k = modBusUSB2.readPDU().Raw[4];
+        modBusUSB2.Disconnect();
+
         Detector detector = new Detector();
         detector.setDetCapacity((float) 12.00);
         detector.setDetTemperature((float) 122);
