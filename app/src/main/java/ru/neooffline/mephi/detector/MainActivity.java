@@ -13,70 +13,79 @@ import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    private UsbManager mUsbManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     public void callSettingsActivity(View view) {
         Intent toSettings = new Intent(this, SettingsActivity.class);
         startActivity(toSettings);
     }
+    public void callSerialConsole(View view) {
+        Intent toConsole = new Intent(this, SerialConsoleActivity.class);
+        startActivity(toConsole);
+    }
 
     public void callAboutActivity(View view) {
-        Intent toAbout = new Intent(this, AboutActivity.class);
+        Intent toAbout = new Intent(this, DeviceListActivity.class);
         startActivity(toAbout);
     }
 
-    public boolean clack (View view) throws IOException {
 
-        ModBusUSB modBusUSB1 = new ModBusUSB(this);
-        modBusUSB1.SetSerialParams(34800,8,2,UsbSerialPort.PARITY_NONE);
-        modBusUSB1.Connect();
-        modBusUSB1.ReadHoldingRegisters(1,1,1);
-        boolean connect = modBusUSB1.Connected();
-        return connect;
-    }
-
-    public void calc (View view) throws IOException {
-
-        ModBusUSB modBusUSB2 = new ModBusUSB(this);
-        modBusUSB2.SetSerialParams(38400,8,2,UsbSerialPort.PARITY_NONE);
-        modBusUSB2.Connect();
-        boolean connect = modBusUSB2.Connected();
-//        boolean connect = true;
-        //int sd = modBusUSB2.ActivePort().getSerial().getBytes().length;
-        modBusUSB2.ReadHoldingRegisters(1,1,1);
-        int sd = 124;
-        Detector detector = new Detector();
-        detector.setDetCapacity((float) 12.00);
-        detector.setDetTemperature((float) 122);
-        detector.setDetVoltage((float) 24);
-        detector.setDetNumber(sd);
-        detector.setDetDate(2018,3,15,15,15);
-
-//        String sensorTemperature = "lala";
-//        Random random = new Random();
-//        Random random1 = new Random();
-//        Double randNumber = random.nextDouble() * 15;
-//        Double randNumber1 = random1.nextDouble() * 5;
-//        double sensorVoltage = (double) Math.round(randNumber * 100d) / 100d;
-//        double sensorCapacity = (double) Math.round(randNumber1 * 1000d) / 1000d;
+    protected void onResume() {
+        super.onResume();
+        Detector detector_ma = new Detector();
         TextView textFill_uDat = findViewById(R.id.uDat_var);
         TextView textFill_cDat = findViewById(R.id.cDat_var);
         TextView textFill_tDat = findViewById(R.id.tDat_var);
-        TextView textFil_numDat =  findViewById(R.id.numDat_var);
+        TextView textFil_numDat = findViewById(R.id.numDat_var);
         TextView textFill_dateDat = findViewById(R.id.dateDat_var);
         RadioButton textFill_Connected = findViewById(R.id.radio1);
-        textFil_numDat.setText(String.valueOf(detector.getDetNumber()));
-        textFill_dateDat.setText(detector.getDetDate());
-        textFill_cDat.setText(String.valueOf(detector.getDetCapacity()));
-        textFill_tDat.setText(String.valueOf(detector.getDetTemperature()));
-        textFill_uDat.setText(String.valueOf(detector.getDetVoltage()));
-        textFill_Connected.setChecked(connect);
+        ModBusUSB modBusUSB2 = new ModBusUSB(this);
+        try {
+            modBusUSB2.Disconnect();
+            modBusUSB2.SetSerialParams(9600,8,2,UsbSerialPort.PARITY_NONE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        boolean isConnected = false;
+        try {
+            modBusUSB2.Connect();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        long hum = 0;
+        long temp = 0;
+        try {
+            modBusUSB2.ReadHoldingRegisters(17,0x01,1);
+            hum = modBusUSB2.readPDU().Raw[4];
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        isConnected = modBusUSB2.Connected();
+
+        try {
+            modBusUSB2.ReadHoldingRegisters(17,0x02,1);
+            temp = modBusUSB2.readPDU().Raw[4];
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        detector_ma.setDetCapacity((float) 12.00);
+        detector_ma.setDetTemperature(temp);
+        detector_ma.setDetVoltage(hum);
+        detector_ma.setDetNumber(14);
+        detector_ma.setDetDate(2018,3,15,15,15);
+
+
+        textFil_numDat.setText(String.valueOf(detector_ma.getDetNumber()));
+        textFill_dateDat.setText(detector_ma.getDetDate());
+        textFill_cDat.setText(String.valueOf(detector_ma.getDetCapacity()));
+        textFill_tDat.setText(String.valueOf(detector_ma.getDetTemperature()));
+        textFill_uDat.setText(String.valueOf(detector_ma.getDetVoltage()));
+        textFill_Connected.setChecked(isConnected);
 
     }
 }
