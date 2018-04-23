@@ -40,7 +40,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/detName_var"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:ems="10"

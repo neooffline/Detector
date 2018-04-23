@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     public void callSettingsActivity(View view) {
@@ -33,35 +34,57 @@ public class MainActivity extends AppCompatActivity {
         startActivity(toAbout);
     }
 
-    public void calc (View view) throws IOException {
 
-        ModBusUSB modBusUSB2 = new ModBusUSB(this);
-        modBusUSB2.SetSerialParams(9600,8,2,UsbSerialPort.PARITY_NONE);
-        boolean isConnected = false;
-        modBusUSB2.Connect();
-        modBusUSB2.ReadHoldingRegisters(17,0,1);
-        isConnected = modBusUSB2.Connected();
-        int k = modBusUSB2.readPDU().Raw[4];
-        modBusUSB2.Disconnect();
-
-        Detector detector = new Detector();
-        detector.setDetCapacity((float) 12.00);
-        detector.setDetTemperature((float) 122);
-        detector.setDetVoltage(k);
-        detector.setDetNumber(14);
-        detector.setDetDate(2018,3,15,15,15);
-
+    protected void onResume() {
+        super.onResume();
+        Detector detector_ma = new Detector();
         TextView textFill_uDat = findViewById(R.id.uDat_var);
         TextView textFill_cDat = findViewById(R.id.cDat_var);
         TextView textFill_tDat = findViewById(R.id.tDat_var);
         TextView textFil_numDat = findViewById(R.id.numDat_var);
         TextView textFill_dateDat = findViewById(R.id.dateDat_var);
         RadioButton textFill_Connected = findViewById(R.id.radio1);
-        textFil_numDat.setText(String.valueOf(detector.getDetNumber()));
-        textFill_dateDat.setText(detector.getDetDate());
-        textFill_cDat.setText(String.valueOf(detector.getDetCapacity()));
-        textFill_tDat.setText(String.valueOf(detector.getDetTemperature()));
-        textFill_uDat.setText(String.valueOf(detector.getDetVoltage()));
+        ModBusUSB modBusUSB2 = new ModBusUSB(this);
+        try {
+            modBusUSB2.Disconnect();
+            modBusUSB2.SetSerialParams(9600,8,2,UsbSerialPort.PARITY_NONE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        boolean isConnected = false;
+        try {
+            modBusUSB2.Connect();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        long hum = 0;
+        long temp = 0;
+        try {
+            modBusUSB2.ReadHoldingRegisters(17,0x01,1);
+            hum = modBusUSB2.readPDU().Raw[4];
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        isConnected = modBusUSB2.Connected();
+
+        try {
+            modBusUSB2.ReadHoldingRegisters(17,0x02,1);
+            temp = modBusUSB2.readPDU().Raw[4];
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        detector_ma.setDetCapacity((float) 12.00);
+        detector_ma.setDetTemperature(temp);
+        detector_ma.setDetVoltage(hum);
+        detector_ma.setDetNumber(14);
+        detector_ma.setDetDate(2018,3,15,15,15);
+
+
+        textFil_numDat.setText(String.valueOf(detector_ma.getDetNumber()));
+        textFill_dateDat.setText(detector_ma.getDetDate());
+        textFill_cDat.setText(String.valueOf(detector_ma.getDetCapacity()));
+        textFill_tDat.setText(String.valueOf(detector_ma.getDetTemperature()));
+        textFill_uDat.setText(String.valueOf(detector_ma.getDetVoltage()));
         textFill_Connected.setChecked(isConnected);
 
     }

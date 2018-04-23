@@ -18,7 +18,6 @@ public class ModBusUSB {
     private UsbSerialPort mActivePort;
     private UsbDeviceConnection mActiveConnection;
     private UsbManager mUsbManager;
-    private Intent mUsbIntent;
     private boolean isConnected;
     private List<UsbSerialPort> mUSBSerialPorts;
 

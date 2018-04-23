@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 public class SettingsActivity extends Activity {
@@ -12,7 +14,10 @@ public class SettingsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
     }
+    TextView readVar_detName = findViewById(R.id.detName_var);
     public void backToMain2 (View view){
+        String st = readVar_detName.toString();
+
         Intent backToMain2 = new Intent(this, MainActivity.class);
         startActivity(backToMain2);
     }
