@@ -5,10 +5,12 @@ import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.hoho.android.usbserial.driver.UsbSerialPort;
+//import app.akexorcist;
 import java.io.IOException;
 
 
@@ -35,30 +37,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    protected void onResume() {
-        super.onResume();
+    protected void onStart() {
+        super.onStart();
         Detector detector_ma = new Detector();
         TextView textFill_uDat = findViewById(R.id.uDat_var);
         TextView textFill_cDat = findViewById(R.id.cDat_var);
         TextView textFill_tDat = findViewById(R.id.tDat_var);
         TextView textFil_numDat = findViewById(R.id.numDat_var);
         TextView textFill_dateDat = findViewById(R.id.dateDat_var);
+        Button startBut = findViewById(R.id.startButton);
         RadioButton textFill_Connected = findViewById(R.id.radio1);
+        private void onClick(View view){
+
+        }
         ModBusUSB modBusUSB2 = new ModBusUSB(this);
         try {
-            modBusUSB2.Disconnect();
+//            modBusUSB2.Disconnect();
+            modBusUSB2.Connect();
             modBusUSB2.SetSerialParams(9600,8,2,UsbSerialPort.PARITY_NONE);
         } catch (IOException e) {
             e.printStackTrace();
         }
         boolean isConnected = false;
-        try {
-            modBusUSB2.Connect();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        long hum = 0;
-        long temp = 0;
+//        System.out.println("fff");
+        float hum = 0;
+        float temp = 0;
         try {
             modBusUSB2.ReadHoldingRegisters(17,0x01,1);
             hum = modBusUSB2.readPDU().Raw[4];

@@ -70,7 +70,7 @@ public class DeviceListActivity extends Activity {
         setContentView(R.layout.device_list);
 
         mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
-        mListView = findViewById(R.id.deviceList);
+        mListView = findViewById(R.id.list_devices);
         mProgressBar = findViewById(R.id.progressBar);
         mProgressBarTitle = findViewById(R.id.progressBarTitle);
 
