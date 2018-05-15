@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.hoho.android.usbserial.bluetooth.BluetoothSPP;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
 //import app.akexorcist;
 import java.io.IOException;
@@ -19,11 +20,18 @@ public class MainActivity extends AppCompatActivity {
     private boolean isConnected;
     Detector detector_ma;
     ModBusUSB modBusUSB2;
+    BluetoothSPP btClass;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         detector_ma = new Detector();
+        btClass = new BluetoothSPP(this);
+        try {
+            btClass.connect(98-D3-32-70-BB-0B);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
         TextView textFill_uDat = findViewById(R.id.uDat_var);
         TextView textFill_cDat = findViewById(R.id.cDat_var);
         TextView textFill_tDat = findViewById(R.id.tDat_var);
