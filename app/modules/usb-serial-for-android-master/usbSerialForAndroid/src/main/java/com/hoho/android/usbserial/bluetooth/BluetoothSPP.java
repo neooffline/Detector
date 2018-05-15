@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package app.akexorcist.bluetotohspp.library;
+package com.hoho.android.usbserial.bluetooth;
 
 import java.util.ArrayList;
 import java.util.Set;

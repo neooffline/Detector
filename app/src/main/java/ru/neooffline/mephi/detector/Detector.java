@@ -1,30 +1,26 @@
 package ru.neooffline.mephi.detector;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by user on 04.04.2018.
  */
 
 public class Detector {
-    String detName;
-    int detNumber;
-    Calendar detDate;
-    float detTemperature;
-    float detCapacity;
-    float detVoltage;
+    private String detName;
+    private int detNumber;
+    private Calendar detDate;
+    private float detTemperature;
+    private float detCapacity;
+    private float detVoltage;
+    private boolean connectionState;
 
     public String getDetName() {
         return detName;
     }
+    boolean getConnectionState(){return connectionState;}
 
-    public void setDetName(String detName) {
-        this.detName = detName;
-    }
-    public void setDetNumber(int number){
-        this.detNumber = number;
-    }
+
     int getDetNumber(){
         return detNumber;
     }
@@ -47,25 +43,33 @@ public class Detector {
         return str;
     }
 
-    public void setDetTemperature(float temp){
-        this.detTemperature = temp;
+
+    float getDetCapacity(){
+        return detCapacity;
     }
     float getDetTemperature(){
         return detTemperature;
     }
-
     float getDetVoltage(){
         return detVoltage;
     }
 
-    public void setDetVoltage(float voltage){
-        this.detVoltage = voltage;
-    }
     public void setDetCapacity(float capacity){
         this.detCapacity = capacity;
     }
-
-    float getDetCapacity(){
-        return detCapacity;
+    public void setDetTemperature(float temp){
+        this.detTemperature = temp;
+    }
+    public void setDetVoltage(float voltage){
+        this.detVoltage = voltage;
+    }
+    public void setDetName(String detName) {
+        this.detName = detName;
+    }
+    public void setConnectionState(boolean state) {
+        this.connectionState = state;
+    }
+    public void setDetNumber(int number){
+        this.detNumber = number;
     }
 }

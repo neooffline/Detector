@@ -15,7 +15,7 @@
  */
 
 
-package app.akexorcist.bluetotohspp.library;
+package com.hoho.android.usbserial.bluetooth;
 
 import java.util.Set;
 

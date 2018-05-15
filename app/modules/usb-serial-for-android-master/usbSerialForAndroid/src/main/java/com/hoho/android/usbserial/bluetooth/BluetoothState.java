@@ -15,7 +15,7 @@
  */
 
 
-package app.akexorcist.bluetotohspp.library;
+package com.hoho.android.usbserial.bluetooth;
 
 public class BluetoothState {
     // Constants that indicate the current connection state
