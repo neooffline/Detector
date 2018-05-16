@@ -29,12 +29,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         detector_ma = new Detector();
         btClass = new BluetoothSPP(this);
-        try {
-            btClass.connect(98-D3-32-70-BB-0B);
+//        try {
+////            btClass.connect(98-D3-32-70-BB-0B);
             Log.d("Bluetooth","trying to connect");
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+//        } catch (IOException e){
+//            e.printStackTrace();
+//        }
         TextView textFill_uDat = findViewById(R.id.uDat_var);
         TextView textFill_cDat = findViewById(R.id.cDat_var);
         TextView textFill_tDat = findViewById(R.id.tDat_var);

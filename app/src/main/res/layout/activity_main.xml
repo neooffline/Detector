@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
@@ -11,37 +11,12 @@
     android:paddingTop="16dp"
     tools:context="ru.neooffline.mephi.detector.MainActivity">
 
-    <ToggleButton
-        android:id="@+id/startButton"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="24dp"
-        android:checked="false"
-        android:onClick="clack"
-        android:text="@string/startButton"
-        android:textOff="@string/startButton"
-        android:textOn="@string/stopButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="16dp"
-        android:text="@string/newWorkButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/startButton" />
-
     <TableLayout
-        android:layout_width="0dp"
-        android:layout_height="97dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="250dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button4"
+        android:layout_below="@+id/button4"
+        android:layout_marginTop="-32dp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -84,7 +59,6 @@
                 android:id="@+id/cDat_var"
                 android:layout_width="70dp"
                 android:layout_height="30dp"
-                android:gravity="left"
                 android:text="0"
                 android:textSize="22sp" />
 
@@ -95,13 +69,6 @@
                 android:gravity="left"
                 android:text="@string/capacityDim"
                 android:textSize="22sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/tDat"
@@ -120,27 +87,46 @@
                 android:textSize="22sp" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/tempDim"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:gravity="left"
                 android:text="@string/tempDime"
                 android:textSize="22sp" />
 
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/tempDim"
+                android:cursorVisible="false"
+                android:textAlignment="viewStart"
+                android:textColorLink="@android:color/holo_red_dark" />
         </TableRow>
 
     </TableLayout>
+
+    <ToggleButton
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:checked="false"
+        android:onClick="clack"
+        android:text="@string/startButton"
+        android:textOff="@string/startButton"
+        android:textOn="@string/stopButton" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="0dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/radio1"
+        android:layout_marginBottom="32dp"
         android:onClick="calc"
-        android:text="@string/startButton"
-        app:layout_constraintBottom_toTopOf="@+id/startButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="@string/startButton" />
 
     <Button
         android:id="@+id/setingsButton"
@@ -149,63 +135,51 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="24dp"
         android:onClick="callSettingsActivity"
-        android:text="@string/settingsButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="@string/settingsButton" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="75dp"
-        android:layout_marginEnd="38dp"
+        android:layout_above="@+id/startButton"
+        android:layout_alignParentEnd="true"
+        android:includeFontPadding="false"
+        android:isScrollContainer="false"
+        android:keepScreenOn="false"
         android:onClick="callAboutActivity"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="Button" />
 
     <TextView
         android:id="@+id/numDat_var"
-        android:layout_width="wrap_content"
+        android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="8dp"
-        android:text="0"
-        app:layout_constraintStart_toEndOf="@+id/dateDat_var"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/radio1"
+        android:text="0" />
 
     <TextView
         android:id="@+id/dateDat_var"
         android:layout_width="140dp"
         android:layout_height="25dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Дата и время"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <RadioButton
-        android:id="@+id/radio1"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:cursorVisible="false"
-        android:text="@string/isConnected"
-        android:textAlignment="viewStart"
-        android:textColorLink="@android:color/holo_red_dark"
-        app:layout_constraintStart_toEndOf="@+id/numDat_var"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignTop="@+id/setingsButton"
+        android:layout_toEndOf="@+id/numDat_var"
+        android:text="Дата и время" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="38dp"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentEnd="true"
         android:onClick="callSerialConsole"
-        android:text="SerialConsole"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="SerialConsole" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="135dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/button5"
+        android:layout_alignParentEnd="true"
+        android:text="@string/newWorkButton" />
+
+</RelativeLayout>
