@@ -3,10 +3,12 @@ package ru.neooffline.mephi.detector;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hoho.android.usbserial.bluetooth.BluetoothSPP;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         btClass = new BluetoothSPP(this);
         try {
             btClass.connect(98-D3-32-70-BB-0B);
+            Log.d("Bluetooth","trying to connect");
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -58,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
         try {
 //            modBusUSB2.Disconnect();
             modBusUSB2.Connect();
+            Toast.makeText(this,"Connecting to USB", Toast.LENGTH_LONG).show();
             modBusUSB2.SetSerialParams(9600,8,2,UsbSerialPort.PARITY_NONE);
+            Toast.makeText(this,"Set bound ",Toast.LENGTH_LONG);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
