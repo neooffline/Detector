@@ -1,30 +1,27 @@
 package ru.neooffline.mephi.detector;
 
 import java.util.Calendar;
-import java.util.Date;
+import java.util.ArrayList;
 
 /**
  * Created by user on 04.04.2018.
  */
 
 public class Detector {
-    String detName;
-    int detNumber;
-    Calendar detDate;
-    float detTemperature;
-    float detCapacity;
-    float detVoltage;
+    private String detName;
+    private int detNumber;
+    private Calendar detDate;
+    ArrayList detTemperature = new ArrayList();
+    ArrayList detCapacity = new ArrayList();
+    ArrayList detVoltage = new ArrayList();
+    private boolean connectionState;
 
     public String getDetName() {
         return detName;
     }
+    boolean getConnectionState(){return connectionState;}
 
-    public void setDetName(String detName) {
-        this.detName = detName;
-    }
-    public void setDetNumber(int number){
-        this.detNumber = number;
-    }
+
     int getDetNumber(){
         return detNumber;
     }
@@ -47,25 +44,33 @@ public class Detector {
         return str;
     }
 
-    public void setDetTemperature(float temp){
-        this.detTemperature = temp;
-    }
-    float getDetTemperature(){
-        return detTemperature;
-    }
 
-    float getDetVoltage(){
-        return detVoltage;
+    /*float getDetTemperature(int i){
+       detTemperature.get(i);
     }
+    float getDetVoltage(int i){
+       detVoltage.get(i);
+    }
+    float getDetCapacity(int i){
+        detCapacity.get(i);
+    }*/
 
-    public void setDetVoltage(float voltage){
-        this.detVoltage = voltage;
-    }
     public void setDetCapacity(float capacity){
-        this.detCapacity = capacity;
+        detCapacity.add(capacity);
     }
-
-    float getDetCapacity(){
-        return detCapacity;
+    public void setDetTemperature(float temp){
+        detTemperature.add(temp);
+    }
+    public void setDetVoltage(float voltage){
+        detVoltage.add(voltage);
+    }
+    public void setDetName(String detName) {
+        this.detName = detName;
+    }
+    public void setConnectionState(boolean state) {
+        this.connectionState = state;
+    }
+    public void setDetNumber(int number){
+        this.detNumber = number;
     }
 }

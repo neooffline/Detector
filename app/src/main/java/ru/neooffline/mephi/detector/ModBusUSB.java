@@ -13,7 +13,6 @@ import java.util.List;
 
 public class ModBusUSB {
 
-//    private final Context context;
     private byte[] readBuffer = new byte[255];
     private UsbSerialPort mActivePort;
     private UsbDeviceConnection mActiveConnection;

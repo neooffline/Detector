@@ -14,10 +14,8 @@ public class SettingsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
     }
-    TextView readVar_detName = findViewById(R.id.detName_var);
+//    TextView readVar_detName = findViewById(R.id.detName_var);
     public void backToMain2 (View view){
-        String st = readVar_detName.toString();
-
         Intent backToMain2 = new Intent(this, MainActivity.class);
         startActivity(backToMain2);
     }
