@@ -16,55 +16,87 @@ import com.hoho.android.usbserial.bluetooth.BluetoothSPP;
 import com.hoho.android.usbserial.driver.UsbSerialPort;
 //import app.akexorcist;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
     /*private float hum;
     private float temp;*/
-    private boolean isConnected;
+
+    int schet = 14;
+    boolean isConnected = false;
+    boolean isPressed = false;
     Detector detector_ma;
     ModBusUSB modBusUSB2;
     BluetoothSPP btClass;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         detector_ma = new Detector();
         btClass = new BluetoothSPP(this);
-//        try {
-////            btClass.connect(98-D3-32-70-BB-0B);
-            Log.d("Bluetooth","trying to connect");
-//        } catch (IOException e){
-//            e.printStackTrace();
-//        }
+
+        addData();
+        Log.i("onCreate","Vse OK!, счет: "+ schet + " нажата: "+ isPressed);
+        fillData();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        int counter = 0;
+
+        //        MyAsyncTask myAsyncTask = new MyAsyncTask(this);
+//        myAsyncTask.doInBackground();
+
+    }
+    private void addData(){
+        for (int counter = 0; counter < 10; counter++) {
+            detector_ma.detCapacity.add(counter+1);
+            Log.i("Array", "fill Capacity " + counter);
+            detector_ma.detTemperature.add(counter+2);
+            Log.i("Array", "fill Temperature" + counter);
+            detector_ma.detVoltage.add(counter+3);
+            Log.i("Array", "fill Voltage" + counter);
+            detector_ma.setDetNumber(counter+4);
+            Log.i("Array", "fill Number" + counter);
+        }
+        detector_ma.setConnectionState(true);
+        detector_ma.setDetDate(2018, 3, 15, 15, 15);
+    }
+    private void fillData(){
         TextView textFill_uDat = findViewById(R.id.uDat_var);
         TextView textFill_cDat = findViewById(R.id.cDat_var);
         TextView textFill_tDat = findViewById(R.id.tDat_var);
         TextView textFil_numDat = findViewById(R.id.numDat_var);
         TextView textFill_dateDat = findViewById(R.id.dateDat_var);
         RadioButton textFill_Connected = findViewById(R.id.radio1);
-
-//        boolean isConnected = false;
-//        System.out.println("fff");
-
-        for (int i = 0; i < 300; i++) {
-            textFill_cDat.setText(String.valueOf(detector_ma.detCapacity.get(i)));
-            Log.d("Array","fill Capacity");
-            textFill_tDat.setText(String.valueOf(detector_ma.detTemperature.get(i)));
-            Log.d("Array","fill Temperature");
-            textFill_uDat.setText(String.valueOf(detector_ma.detVoltage.get(i)));
-            Log.d("Array","fill Voltage");
+        for (int counter = 0; counter < 10; counter++) {
+            textFil_numDat.setText(String.valueOf(detector_ma.getDetNumber()));
+            Log.i("Fill Number", "Number: "+counter);
+            textFill_cDat.setText(String.valueOf(detector_ma.detCapacity.get(counter)));
+            Log.i("Fill Capacity", "C: "+counter);
+            textFill_tDat.setText(String.valueOf(detector_ma.detTemperature.get(counter)));
+            Log.i("Fill Temp", "T: "+counter);
+            textFill_uDat.setText(String.valueOf(detector_ma.detVoltage.get(counter)));
+            Log.i("Fill Voltage", "V: "+counter);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        detector_ma.setConnectionState(modBusUSB2.Connected());
-        detector_ma.setDetNumber(14);
-        detector_ma.setDetDate(2018,3,15,15,15);
-        textFil_numDat.setText(String.valueOf(detector_ma.getDetNumber()));
-        textFill_dateDat.setText(detector_ma.getDetDate());
         textFill_Connected.setChecked(detector_ma.getConnectionState());
-
-
+        Log.i("Fill Check", "check: " + detector_ma.getConnectionState());
+        textFill_dateDat.setText(detector_ma.getDetDate());
+        Log.i("Fill Date", "Date: "+detector_ma.getDetDate());
     }
-
+    private void startStop(View view){
+        isPressed = !isPressed;
+        schet++;
+        Log.i("Button", "Нажата " + schet + " раз " + isPressed);
+    }
     public void callSettingsActivity(View view) {
         Intent toSettings = new Intent(this, SettingsActivity.class);
         startActivity(toSettings);
@@ -105,21 +137,19 @@ public class MainActivity extends AppCompatActivity {
         }
         @Override
         protected Integer doInBackground(String... strings) {
-            try {
-                modBusUSB2.ReadHoldingRegisters(17, 0x01, 1);
-                detector_ma.detVoltage.add(modBusUSB2.readPDU().Raw[4]);
-                Log.d("USB", "read and write iteration ");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                modBusUSB2.ReadHoldingRegisters(17, 0x02, 1);
-                detector_ma.detTemperature.add(modBusUSB2.readPDU().Raw[4]);
-                Log.d("USB", "read and write iteration ");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
+            int i = 0;
+            while (isPressed) {
+                //                    modBusUSB2.ReadHoldingRegisters(17, 0x01, 1);
+//                    detector_ma.detVoltage.add(modBusUSB2.readPDU().Raw[4]);
+                detector_ma.detVoltage.add(i);
+                Log.d("USB", "read and write iteration ");
+                //                    modBusUSB2.ReadHoldingRegisters(17, 0x02, 1);
+//                    detector_ma.detTemperature.add(modBusUSB2.readPDU().Raw[4]);
+                detector_ma.detTemperature.add(i);
+                Log.d("USB", "read and write iteration ");
+                i++;
+            }
             detector_ma.detCapacity.add((float) 12.00);
             Log.d("Array", "write Capacity");
             /*detector_ma.detTemperature.add(temp);
